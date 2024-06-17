@@ -8,7 +8,9 @@ import { Address } from "ton";
 import { useTonClient } from './hooks/useTonClient';
 import "@twa-dev/sdk";
 import { TonClient } from 'ton';
-
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import HomePage from './HomePage';
+import CollectionPage from './CollectionPage';
 
 const StyledApp = styled.div`
   position: fixed;
@@ -188,6 +190,10 @@ const InputField = styled.input`
   }
 `;
 
+
+
+
+
 function App() {
   const maxQuantity = 300; // Replace with actual max quantity
   const nftCount = 2; // Replace with actual NFT count
@@ -245,6 +251,7 @@ function App() {
   }, [wallet, client]);
   
   return (
+    
     <StyledApp>
     <FlexBoxRow style={{ 
   justifyContent: 'space-between', 
@@ -325,6 +332,7 @@ function App() {
   
 </AppContainer>
   </StyledApp>
+  
 );
 }
 
