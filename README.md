@@ -1,7 +1,3 @@
-# twa-template
-
-> Starter template for a new TWA interacting with the TON blockchain
-
 # Overview
 
 The project is highly-opinionated, and there are many other alternate routes it could have taken. Some examples:
@@ -45,11 +41,8 @@ The project is highly-opinionated, and there are many other alternate routes it 
 
 # Roadmap
 
-- [ ] Jetton transfer support
+- [ ] Add smart-contract interaction and collection view tab
 
 # License
 
-MIT
-# neuron_app
-# neuron_app
-# neuron_app
+
