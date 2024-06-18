@@ -34,26 +34,20 @@ const CollectionGrid = styled.div`
 const CollectionItem = styled.div`
   background-color: #f7f7f7;
   border-radius: 10px;
-  padding: 5px; /* reduced padding */
+  padding: 10px;
   text-align: center;
-  width: 70px; /* set the width to 70px */
-  height: 70px; /* set the height to 70px */
-  display: flex; /* use flexbox to center the content */
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 `;
 
 const ImageContainer = styled.div`
-  width: 50px; /* reduced width */
-  height: 50px; /* reduced height */
+  width: 100%;
+  height: 150px;
   overflow: hidden; /* Hide overflow to create a clean cut */
   border-radius: 8px;
 `;
 
 const CollectionImage = styled.img`
-  width: 100%; /* keep the image width 100% of the container */
-  height: 100%; /* keep the image height 100% of the container */
+  width: 100%;
+  height: 100%;
   object-fit: cover; /* Scale image to fit container */
 `;
 
