@@ -13,8 +13,8 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { to: `/neuron/`, icon: walletIcon, label: 'Wallet' },
-  { to: `/neuron/collection`, icon: appsIcon, label: 'Collection' },
+  { to: `/`, icon: walletIcon, label: 'Wallet' },
+  { to: `/collection`, icon: appsIcon, label: 'Collection' },
 ];
 
 const BottomNavBar: React.FC = () => {
