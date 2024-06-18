@@ -27,15 +27,19 @@ const AppContainer = styled.div`
 
 const CollectionGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid with smaller min width */
   gap: 10px;
 `;
 
 const CollectionItem = styled.div`
   background-color: #f7f7f7;
   border-radius: 10px;
-  padding: 10px;
+  padding: 5px; /* Reduce padding for tighter layout */
   text-align: center;
+  display: flex; /* Arrange title and number horizontally */
+  flex-direction: column; /* Stack title and number vertically */
+  justify-content: space-between; /* Align content at top and bottom */
+  align-items: center; /* Center content horizontally */
 `;
 
 const ImageContainer = styled.div`
@@ -51,8 +55,10 @@ const CollectionImage = styled.img`
   object-fit: cover; /* Scale image to fit container */
 `;
 
-const CollectionText = styled.div`
-  margin-top: 10px;
+const CollectionText = styled.p`
+  margin: 0; /* Remove default margin for tighter spacing */
+  font-size: 12px; /* Reduce font size for smaller text */
+  color: #333; /* Darker text color for better contrast */
 `;
 
 const FlexBoxRow = styled.div`
