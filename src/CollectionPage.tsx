@@ -34,15 +34,15 @@ const CollectionGrid = styled.div`
 const CollectionItem = styled.div`
   background-color: #f7f7f7;
   border-radius: 10px;
-  padding: 10px;
+  padding: 5px; /* Reduced padding */
   text-align: center;
 `;
 
 const ImageContainer = styled.div`
   width: 100%;
-  height: 150px;
+  height: 120px; /* Increased height */
   overflow: hidden; /* Hide overflow to create a clean cut */
-  border-radius: 8px;
+  border-radius: 6px; /* Adjusted border radius */
 `;
 
 const CollectionImage = styled.img`
