@@ -4,29 +4,21 @@ import styled from "styled-components";
 import "@twa-dev/sdk";
 import BottomNavBar from "./BottomNavBar";
 
-
-
 const StyledApp = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 90vw;
-    height: 100vh;
-    padding: 20px 20px;
-    overflow: hidden;
-    background-color: #fff;
-  `;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 90vw;
+  height: 100vh;
+  padding: 20px 20px;
+  overflow: hidden;
+  background-color: #fff;
+`;
 
 const AppContainer = styled.div`
-    max-width: 900px;
-    margin: 0 ;
-    display: flex;
-    justify-content: space-between;
-  `;
-
-
-
-
+  max-width: 900px;
+  margin: 0;
+`;
 
 const NftIcon = styled.img`
   width: 100%;
@@ -54,29 +46,23 @@ const NftCount = styled.span`
   color: #666;
 `;
 
-
 const FlexBoxCol = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    height: 100vh; /* Установите высоту родительского элемента */
-  `;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100vh; /* Set a height for mobile layout */
+`;
 
-
-
-
-
-
-  const FlexBoxRow = styled.div`
+const FlexBoxRow = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 10px;
-  flex-wrap: wrap; /* Add this to wrap rows */
+  flex-wrap: wrap; /* Wrap rows for mobile */
 `;
 
 const NftComponent = styled.div`
-  width: calc(25% - 10px);
+  width: calc(25% - 10px); /* 25% width for 4 cards per row */
   margin: 10px;
   display: flex;
   flex-direction: column;
@@ -85,16 +71,7 @@ const NftComponent = styled.div`
   border-radius: 8px;
   background-color: #f2f2f2;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-  @media (max-width: 768px) {
-    width: calc(50% - 10px);
-  }
-
-  @media (max-width: 480px) {
-    width: calc(100% - 10px);
-  }
 `;
-
 
 function CollectionPage() {
   return (
@@ -113,31 +90,27 @@ function CollectionPage() {
         borderBottomRightRadius: 10
       }}>
         <h2 style={{
-          color: '#666', // серый цвет текста
-          background: 'linear-gradient(to right, #666, #999)', // градиент для текста
-          WebkitBackgroundClip: 'text', // для корректного отображения градиента в Chrome
-          WebkitTextFillColor: 'transparent' // для корректного отображения градиента в Chrome
+          color: '#666', // gray text color
+          background: 'linear-gradient(to right, #666, #999)', // text gradient
+          WebkitBackgroundClip: 'text', // for Chrome gradient display
+          WebkitTextFillColor: 'transparent' // for Chrome gradient display
         }}>
           NEURON
         </h2>
-        <TonConnectButton /> {/* Используем стилизованную кнопку TonConnect */}
+        <TonConnectButton /> {/* Use styled TonConnect button */}
       </FlexBoxRow>
-      <AppContainer style={{ marginTop: 60, width: '90vw', marginLeft: 0, marginRight: 0 }}>
-        
-<FlexBoxCol style={{ flex: 1, width: '100%', maxHeight: 'calc(100vh - 100px)' }}> {/* Add maxHeight to limit the height */}
-  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map((index) => (
-    <NftComponent key={index}>
-      <NftIcon src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_65942fafa4afb845b1e81163_659430a8b0a16502671854b3/scale_1200" alt={`Image ${index}`} />
-      <NftInfo>
-        <NftTitle>{`Image ${index}`}</NftTitle>
-        <NftCount>{`${index}/16`}</NftCount>
-      </NftInfo>
-    </NftComponent>
-  ))}
-</FlexBoxCol>
+      <AppContainer style={{ marginTop: 60, width: '90vw' }}>
+        <FlexBoxCol>
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map((index) => (
+            <NftComponent key={index}>
+              <NftIcon src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_65942fafa4afb845b1e81163_659430a8b0a16502"/>
+           </NftComponent>
+          ))}
+        </FlexBoxCol>
       </AppContainer>
       <BottomNavBar />
     </StyledApp>
   );
 }
+
 export default CollectionPage;
