@@ -27,25 +27,6 @@ const AppContainer = styled.div`
 
 
 
-  const NftComponent = styled.div`
-  width: calc(25% - 10px);
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 16px;
-  border-radius: 8px;
-  background-color: #f2f2f2;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-  @media (max-width: 768px) {
-    width: calc(50% - 10px);
-  }
-
-  @media (max-width: 480px) {
-    width: calc(100% - 10px);
-  }
-`;
 
 const NftIcon = styled.img`
   width: 100%;
@@ -75,18 +56,43 @@ const NftCount = styled.span`
 
 
 const FlexBoxCol = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  height: 100vh; /* Установите высоту родительского элемента */
-`;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100vh; /* Установите высоту родительского элемента */
+  `;
 
-const FlexBoxRow = styled.div`
+
+
+
+
+
+  const FlexBoxRow = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap; /* Add this to wrap elements into rows */
-  justify-content: space-between;
+  align-items: center;
   gap: 10px;
+  flex-wrap: wrap; /* Add this to wrap rows */
+`;
+
+const NftComponent = styled.div`
+  width: calc(25% - 10px);
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #f2f2f2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    width: calc(50% - 10px);
+  }
+
+  @media (max-width: 480px) {
+    width: calc(100% - 10px);
+  }
 `;
 
 
@@ -117,19 +123,18 @@ function CollectionPage() {
         <TonConnectButton /> {/* Используем стилизованную кнопку TonConnect */}
       </FlexBoxRow>
       <AppContainer style={{ marginTop: 60, width: '90vw', marginLeft: 0, marginRight: 0 }}>
-        <FlexBoxCol style={{ flex: 1, width: '100%' }}>
-          <FlexBoxRow style={{ justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index) => (
-              <NftComponent key={index}>
-                <NftIcon src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_65942fafa4afb845b1e81163_659430a8b0a16502671854b3/scale_1200" alt={`Image ${index}`} />
-                <NftInfo>
-                  <NftTitle>{`Image ${index}`}</NftTitle>
-                  <NftCount>{`${index}/10`}</NftCount>
-                </NftInfo>
-              </NftComponent>
-            ))}
-          </FlexBoxRow>
-        </FlexBoxCol>
+        
+<FlexBoxCol style={{ flex: 1, width: '100%', maxHeight: 'calc(100vh - 100px)' }}> {/* Add maxHeight to limit the height */}
+  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map((index) => (
+    <NftComponent key={index}>
+      <NftIcon src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_65942fafa4afb845b1e81163_659430a8b0a16502671854b3/scale_1200" alt={`Image ${index}`} />
+      <NftInfo>
+        <NftTitle>{`Image ${index}`}</NftTitle>
+        <NftCount>{`${index}/16`}</NftCount>
+      </NftInfo>
+    </NftComponent>
+  ))}
+</FlexBoxCol>
       </AppContainer>
       <BottomNavBar />
     </StyledApp>
