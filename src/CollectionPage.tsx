@@ -9,9 +9,9 @@ const StyledApp = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  width: 85vw;
+  width: 90vw;
   height: 100vh;
-  padding: 10px 20px;
+  padding: 20px 20px;
   overflow: hidden;
   background-color: #fff;
 `;
@@ -22,7 +22,7 @@ const AppContainer = styled.div`
   display: flex;
   flex-direction: column; /* Arrange items vertically */
   gap: 10px;
-  padding: 0 20px;
+  padding: 0 10px;
 `;
 
 const CollectionGrid = styled.div`
