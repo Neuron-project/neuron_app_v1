@@ -1,14 +1,7 @@
 import "./App.css";
 import { TonConnectButton } from "@tonconnect/ui-react";
-import { useState, useEffect } from "react";
 import styled from "styled-components";
-import { useTonWallet } from '@tonconnect/ui-react';
-import { useTonConnect } from "./hooks/useTonConnect";
-import { Address } from "ton";
-import { useTonClient } from './hooks/useTonClient';
 import "@twa-dev/sdk";
-import { TonClient } from 'ton';
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom"
 import BottomNavBar from "./BottomNavBar";
 
 
@@ -31,59 +24,11 @@ const AppContainer = styled.div`
     justify-content: space-between;
   `;
 
-const QuantityComponent = styled.div`
-    width: 34vw;
-    display: flex;
-    height: 20vh;
-    align-items: center;
-    padding: 16px;
-    border-radius: 8px;
-    background-color: #f2f2f2;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  `;
 
-const QuantityInfo = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-right: 16px;
-  `;
-
-const QuantityTitle = styled.span`
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 4px;
-    white-space: nowrap; /* Добавьте это свойство */
-  `;
-
-const QuantityCount = styled.span`
-    font-size: 17px;
-    font-weight: bold;
-    color: #666;
-  `;
-
-const SliderContainer = styled.div`
-    width: 10vw;
-    height: 20vh;
-    background-color: #ddd;
-    border-radius: 10px;
-    margin-right: 16px;
-    display: flex;
-    flex-direction: column-reverse;
-  `;
-
-const Slider = styled.div`
-    width: 100%;
-    height: 0%;
-    background-color: #000; /* Черный цвет для слайдера */
-    border-radius: 10px;
-    transition: height 0.3s ease-in-out;
-    align-self: flex-start;
-  `;
 
 
   const NftComponent = styled.div`
-  width: 23%;
+  width: calc(25% - 10px);
   margin: 10px;
   display: flex;
   flex-direction: column;
@@ -92,6 +37,14 @@ const Slider = styled.div`
   border-radius: 8px;
   background-color: #f2f2f2;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    width: calc(50% - 10px);
+  }
+
+  @media (max-width: 480px) {
+    width: calc(100% - 10px);
+  }
 `;
 
 const NftIcon = styled.img`
@@ -120,6 +73,7 @@ const NftCount = styled.span`
   color: #666;
 `;
 
+
 const FlexBoxCol = styled.div`
     display: flex;
     flex-direction: column;
@@ -128,37 +82,10 @@ const FlexBoxCol = styled.div`
   `;
 
 
-const NewComponent = styled.div`
-    height: 50vh;
-    width: 82vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f2f2f2;
-    padding: 16px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  `;
 
 
-const BuyButton = styled.button`
-    width: 70vw;
-    background: #000;
-    border: none;
-    border-radius: 10px;
-    color: #fff;
-    cursor: pointer;
-    font-size: 18px;
-    padding: 10px 20px;
-    transition: background 0.3s ease-in-out;
-    margin: auto; /* Добавьте это свойство */
-    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
 
-    &:active {
-      transform: scale(0.95);
-    }
-  `;
+
 
 const FlexBoxRow = styled.div`
     display: flex;
@@ -167,79 +94,7 @@ const FlexBoxRow = styled.div`
     gap: 10px;
   `;
 
-const InputWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 16px;
-  `;
 
-const InputLabel = styled.span`
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 8px;
-  `;
-
-const InputField = styled.input`
-    padding: 12px;
-    font-size: 18px;
-    font-weight: 600;
-    color: #333;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    transition: border-color 0.2s ease-in-out;
-
-    &:focus {
-      border-color: #aaa;
-    }
-  `;
-const BottomNav = styled.div`
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 50px;
-    background-color: #f7f7f7;
-    border-top: 1px solid #ddd;
-    border-radius: 10px 10px 0 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 16px;
-  `;
-
-const NavItem = styled.div`
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
-    margin: 0 16px;
-    text-align: center;
-  `;
-const Navigation = styled.nav`
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 50px;
-    background-color: #f7f7f7;
-    border-top: 1px solid #ddd;
-    border-radius: 10px 10px 0 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 16px;
-  `;
-
-const NavLink = styled.a`
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
-    text-decoration: none;
-    margin: 0 16px;
-    display: flex;
-    align-items: center;
-    height: 100%;
-  `;
 function CollectionPage() {
   return (
     <StyledApp>
@@ -270,21 +125,21 @@ function CollectionPage() {
         <FlexBoxRow style={{ justifyContent: 'tretch', alignItems: 'center', width: '100%' }}>
           <FlexBoxCol style={{ flex: 1, width: '50%' }}>
             <NftComponent>
-              <NftIcon src="src/components/styled/nft.png" alt="Image 1" />
+              <NftIcon src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_65942fafa4afb845b1e81163_659430a8b0a16502671854b3/scale_1200" alt="Image 1" />
               <NftInfo>
                 <NftTitle>Image 1</NftTitle>
                 <NftCount>1/10</NftCount>
               </NftInfo>
             </NftComponent>
             <NftComponent>
-              <NftIcon src="src/components/styled/nft.png" alt="Image 2" />
+              <NftIcon src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_65942fafa4afb845b1e81163_659430a8b0a16502671854b3/scale_1200" alt="Image 2" />
               <NftInfo>
                 <NftTitle>Image 2</NftTitle>
                 <NftCount>2/10</NftCount>
               </NftInfo>
             </NftComponent>
             <NftComponent>
-              <NftIcon src="src/components/styled/nft.png" alt="Image 3" />
+              <NftIcon src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_65942fafa4afb845b1e81163_659430a8b0a16502671854b3/scale_1200" alt="Image 3" />
               <NftInfo>
                 <NftTitle>Image 3</NftTitle>
                 <NftCount>3/10</NftCount>
