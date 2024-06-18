@@ -19,6 +19,7 @@
   flex-grow: 1;
   text-align: center;
   font-size: 12px; /* Reduced font size */
+  cursor: pointer;
 }
 
 .bottom-nav-bar.icon {
@@ -34,4 +35,9 @@
 
 .bottom-nav-bar:active.icon {
   fill: #fff;
+}
+
+.bottom-nav-bar *:active, .bottom-nav-bar *:focus {
+  outline: none;
+  box-shadow: none;
 }
