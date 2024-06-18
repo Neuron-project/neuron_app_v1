@@ -36,13 +36,11 @@ const CollectionItem = styled.div`
   border-radius: 10px;
   padding: 10px;
   text-align: center;
-  width: 23vw;
-  height: 23vw;
 `;
 
 const ImageContainer = styled.div`
   width: 100%;
-  height: 50%;
+  height: 150px;
   overflow: hidden; /* Hide overflow to create a clean cut */
   border-radius: 8px;
 `;
@@ -163,7 +161,7 @@ function CollectionPage() {
   <TonConnectButton/> {/* Используем стилизованную кнопку TonConnect */}
 </FlexBoxRow>
       {showCollection && (
-        <AppContainer style={{ marginTop: 60, width: "80vw" }}>
+        <AppContainer style={{ marginTop: 60, width: "85vw" }}>
           <CollectionGrid>
             {collectionData.map((item) => (
               <CollectionItem key={item.id}>
