@@ -24,25 +24,25 @@ const AppContainer = styled.div`
   display: flex;
   flex-direction: column; /* Arrange items vertically */
   gap: 10px;
-  padding: 0 20px;
+  padding: 0 10px; /* Reduce left and right padding to 10px */
 `;
 
 const CollectionGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); /* Reduce card width to 50px */
   gap: 10px;
 `;
 
 const CollectionItem = styled.div`
   background-color: #f7f7f7;
   border-radius: 10px;
-  padding: 10px;
+  padding: 5px; /* Reduce padding to 5px */
   text-align: center;
 `;
 
 const ImageContainer = styled.div`
   width: 100%;
-  height: 150px;
+  height: 75px; /* Reduce image height to 75px */
   overflow: hidden; /* Hide overflow to create a clean cut */
   border-radius: 8px;
 `;
@@ -54,7 +54,7 @@ const CollectionImage = styled.img`
 `;
 
 const CollectionText = styled.div`
-  margin-top: 10px;
+  margin-top: 5px; /* Reduce margin to 5px */
 `;
 
 const FlexBoxRow = styled.div`
