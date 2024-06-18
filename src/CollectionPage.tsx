@@ -27,7 +27,7 @@ const AppContainer = styled.div`
 
 const CollectionGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+  grid-template-columns: repeat(auto-fit, minmax(50px, 50px)); /* Responsive grid */
   gap: 10px;
 `;
 
@@ -52,7 +52,7 @@ const CollectionImage = styled.img`
 `;
 
 const CollectionText = styled.div`
-  margin-top: 10px;
+  margin-top: 3px;
 `;
 
 const FlexBoxRow = styled.div`
