@@ -82,40 +82,43 @@ const Slider = styled.div`
   `;
 
 
-const NftComponent = styled.div`
-    display: flex;
-    height: 20vh;
-    align-items: center;
-    padding: 16px;
-    border-radius: 8px;
-    background-color: #f2f2f2;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  `;
+  const NftComponent = styled.div`
+  width: 23%;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #f2f2f2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+`;
 
 const NftIcon = styled.img`
-    width: 32px;
-    height: 32px;
-    margin-right: 16px;
-  `;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+`;
 
 const NftInfo = styled.div`
-    display: flex;
-    flex-direction: column;
-  `;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+`;
 
 const NftTitle = styled.span`
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 4px;
-  `;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4px;
+`;
 
 const NftCount = styled.span`
-    font-size: 24px;
-    font-weight: bold;
-    color: #666;
-  `;
-
+  font-size: 24px;
+  font-weight: bold;
+  color: #666;
+`;
 
 const FlexBoxCol = styled.div`
     display: flex;
@@ -267,21 +270,21 @@ function CollectionPage() {
         <FlexBoxRow style={{ justifyContent: 'tretch', alignItems: 'center', width: '100%' }}>
           <FlexBoxCol style={{ flex: 1, width: '50%' }}>
             <NftComponent>
-              <NftIcon src="./components/styled/nft.png" alt="Image 1" />
+              <NftIcon src="src/components/styled/nft.png" alt="Image 1" />
               <NftInfo>
                 <NftTitle>Image 1</NftTitle>
                 <NftCount>1/10</NftCount>
               </NftInfo>
             </NftComponent>
             <NftComponent>
-              <NftIcon src="./components/styled/nft.png" alt="Image 2" />
+              <NftIcon src="src/components/styled/nft.png" alt="Image 2" />
               <NftInfo>
                 <NftTitle>Image 2</NftTitle>
                 <NftCount>2/10</NftCount>
               </NftInfo>
             </NftComponent>
             <NftComponent>
-              <NftIcon src="./components/styled/nft.png" alt="Image 3" />
+              <NftIcon src="src/components/styled/nft.png" alt="Image 3" />
               <NftInfo>
                 <NftTitle>Image 3</NftTitle>
                 <NftCount>3/10</NftCount>
