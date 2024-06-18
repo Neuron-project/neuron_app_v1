@@ -125,7 +125,7 @@ const FlexBoxCol = styled.div`
 
 
 const NewComponent = styled.div`
-  height: 50vh;
+  height: 45vh;
   width: 82vw;
   display: flex;
   flex-direction: column;
