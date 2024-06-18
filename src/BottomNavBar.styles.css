@@ -6,12 +6,13 @@
   background-color: #f7f7f7;
   height: 50px; /* Reduced height */
   position: fixed;
-  bottom: 0;
+  bottom: 30px; /* Add this line */
   left: 0;
   right: 0;
   border-radius: 15px; /* Increased border-radius to round all corners */
   transition: background-color 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px; /* Add this line */
 }
 
 .bottom-nav-bar > * {
