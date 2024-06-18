@@ -75,24 +75,19 @@ const NftCount = styled.span`
 
 
 const FlexBoxCol = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    height: 100vh; /* Установите высоту родительского элемента */
-  `;
-
-
-
-
-
-
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100vh; /* Установите высоту родительского элемента */
+`;
 
 const FlexBoxRow = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-  `;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /* Add this to wrap elements into rows */
+  justify-content: space-between;
+  gap: 10px;
+`;
 
 
 function CollectionPage() {
@@ -122,31 +117,19 @@ function CollectionPage() {
         <TonConnectButton /> {/* Используем стилизованную кнопку TonConnect */}
       </FlexBoxRow>
       <AppContainer style={{ marginTop: 60, width: '90vw', marginLeft: 0, marginRight: 0 }}>
-        <FlexBoxRow style={{ justifyContent: 'tretch', alignItems: 'center', width: '100%' }}>
-          <FlexBoxCol style={{ flex: 1, width: '50%' }}>
-            <NftComponent>
-              <NftIcon src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_65942fafa4afb845b1e81163_659430a8b0a16502671854b3/scale_1200" alt="Image 1" />
-              <NftInfo>
-                <NftTitle>Image 1</NftTitle>
-                <NftCount>1/10</NftCount>
-              </NftInfo>
-            </NftComponent>
-            <NftComponent>
-              <NftIcon src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_65942fafa4afb845b1e81163_659430a8b0a16502671854b3/scale_1200" alt="Image 2" />
-              <NftInfo>
-                <NftTitle>Image 2</NftTitle>
-                <NftCount>2/10</NftCount>
-              </NftInfo>
-            </NftComponent>
-            <NftComponent>
-              <NftIcon src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_65942fafa4afb845b1e81163_659430a8b0a16502671854b3/scale_1200" alt="Image 3" />
-              <NftInfo>
-                <NftTitle>Image 3</NftTitle>
-                <NftCount>3/10</NftCount>
-              </NftInfo>
-            </NftComponent>
-          </FlexBoxCol>
-        </FlexBoxRow>
+        <FlexBoxCol style={{ flex: 1, width: '100%' }}>
+          <FlexBoxRow style={{ justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index) => (
+              <NftComponent key={index}>
+                <NftIcon src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_65942fafa4afb845b1e81163_659430a8b0a16502671854b3/scale_1200" alt={`Image ${index}`} />
+                <NftInfo>
+                  <NftTitle>{`Image ${index}`}</NftTitle>
+                  <NftCount>{`${index}/10`}</NftCount>
+                </NftInfo>
+              </NftComponent>
+            ))}
+          </FlexBoxRow>
+        </FlexBoxCol>
       </AppContainer>
       <BottomNavBar />
     </StyledApp>
