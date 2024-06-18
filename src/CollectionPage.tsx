@@ -4,13 +4,14 @@ import { TonConnectButton } from "@tonconnect/ui-react";
 import styled from "styled-components";
 import "@twa-dev/sdk";
 import BottomNavBar from "./BottomNavBar";
+
 const StyledApp = styled.div`
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  padding: 10px 10px; /* reduce padding to 10px */
+  padding: 20px 20px;
   overflow: hidden;
   background-color: #fff;
   display: flex;
@@ -19,16 +20,16 @@ const StyledApp = styled.div`
 
 const AppContainer = styled.div`
   max-width: 900px;
-  margin: 0 auto; /* remove left margin */
-  padding: 0 10px; /* reduce padding to 10px */
+  margin: 0 auto; /* Center the content */
   display: flex;
   flex-direction: column; /* Arrange items vertically */
   gap: 10px;
+  padding: 0 20px;
 `;
 
 const CollectionGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(33.33%, 1fr)); /* reduce width to 1/3 of original size */
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid */
   gap: 10px;
 `;
 
@@ -37,26 +38,23 @@ const CollectionItem = styled.div`
   border-radius: 10px;
   padding: 10px;
   text-align: center;
-  width: 33.33%; /* reduce width to 1/3 of original size */
-  height: 100px; /* reduce height to 1/3 of original size */
 `;
 
 const ImageContainer = styled.div`
   width: 100%;
-  height: 50px; /* reduce height to 1/3 of original size */
+  height: 150px;
   overflow: hidden; /* Hide overflow to create a clean cut */
   border-radius: 8px;
 `;
 
 const CollectionImage = styled.img`
-  width: 50px; /* reduce width to 1/3 of original size */
-  height: 50px; /* reduce height to 1/3 of original size */
+  width: 100%;
+  height: 100%;
   object-fit: cover; /* Scale image to fit container */
 `;
 
 const CollectionText = styled.div`
   margin-top: 10px;
-  font-size: 10px; /* reduce font size from default */
 `;
 
 const FlexBoxRow = styled.div`
