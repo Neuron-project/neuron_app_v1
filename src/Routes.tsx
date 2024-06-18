@@ -7,8 +7,8 @@ import App from './App';
 
 
 const router = createBrowserRouter([
-    { path: `/`, element: <HomePage /> },
-    { path: `/collection`, element: <CollectionPage /> },
+    { path: `/neuron`, element: <HomePage /> },
+    { path: `/neuron/collection`, element: <CollectionPage /> },
   ]);
   
   export default router;
