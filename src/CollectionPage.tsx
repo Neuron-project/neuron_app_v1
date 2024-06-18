@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom"
 import BottomNavBar from "./BottomNavBar";
 
 
+
 const StyledApp = styled.div`
     position: fixed;
     top: 0;
@@ -263,15 +264,31 @@ function CollectionPage() {
         <TonConnectButton /> {/* Используем стилизованную кнопку TonConnect */}
       </FlexBoxRow>
       <AppContainer style={{ marginTop: 60, width: '90vw', marginLeft: 0, marginRight: 0 }}>
-        <FlexBoxRow style={{ justifyContent: 'stretch', alignItems: 'center', width: '100%' }}>
+        <FlexBoxRow style={{ justifyContent: 'tretch', alignItems: 'center', width: '100%' }}>
           <FlexBoxCol style={{ flex: 1, width: '50%' }}>
-
-
+            <NftComponent>
+              <NftIcon src="./components/styled/nft.png" alt="Image 1" />
+              <NftInfo>
+                <NftTitle>Image 1</NftTitle>
+                <NftCount>1/10</NftCount>
+              </NftInfo>
+            </NftComponent>
+            <NftComponent>
+              <NftIcon src="./components/styled/nft.png" alt="Image 2" />
+              <NftInfo>
+                <NftTitle>Image 2</NftTitle>
+                <NftCount>2/10</NftCount>
+              </NftInfo>
+            </NftComponent>
+            <NftComponent>
+              <NftIcon src="./components/styled/nft.png" alt="Image 3" />
+              <NftInfo>
+                <NftTitle>Image 3</NftTitle>
+                <NftCount>3/10</NftCount>
+              </NftInfo>
+            </NftComponent>
           </FlexBoxCol>
-
         </FlexBoxRow>
-
-
       </AppContainer>
       <BottomNavBar />
     </StyledApp>
