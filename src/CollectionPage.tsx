@@ -9,9 +9,9 @@ const StyledApp = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  width: 90vw;
+  width: 85vw;
   height: 100vh;
-  padding: 20px 20px;
+  padding: 10px 20px;
   overflow: hidden;
   background-color: #fff;
 `;
@@ -66,61 +66,61 @@ const collectionData = [
   {
     id: 1,
     image: "https://avatars.dzeninfra.ru/get-zen_doc/2359038/pub_6006f5ded5d729006d9d8142_6007051e267c3f280bf1964b/scale_1200",
-    title: "AZUKI",
+    title: "NEURON",
     number: "NO. 5983"
   },
   {
     id: 2,
     image: "https://avatars.dzeninfra.ru/get-zen_doc/2359038/pub_6006f5ded5d729006d9d8142_6007051e267c3f280bf1964b/scale_1200",
-    title: "AZUKI",
+    title: "NEURON",
     number: "NO. 8620"
   },
   {
     id: 3,
     image: "https://avatars.dzeninfra.ru/get-zen_doc/2359038/pub_6006f5ded5d729006d9d8142_6007051e267c3f280bf1964b/scale_1200",
-    title: "AZUKI",
+    title: "NEURON",
     number: "NO. 7169"
   },
   {
     id: 4,
     image: "https://avatars.dzeninfra.ru/get-zen_doc/2359038/pub_6006f5ded5d729006d9d8142_6007051e267c3f280bf1964b/scale_1200",
-    title: "AZUKI",
+    title: "NEURON",
     number: "NO. 4974"
   },
   {
     id: 5,
     image: "https://avatars.dzeninfra.ru/get-zen_doc/2359038/pub_6006f5ded5d729006d9d8142_6007051e267c3f280bf1964b/scale_1200",
-    title: "AZUKI",
+    title: "NEURON",
     number: "NO. 1069"
   },
   {
     id: 6,
     image: "https://avatars.dzeninfra.ru/get-zen_doc/2359038/pub_6006f5ded5d729006d9d8142_6007051e267c3f280bf1964b/scale_1200",
-    title: "AZUKI",
+    title: "NEURON",
     number: "NO. 299"
   },
   {
     id: 7,
     image: "https://avatars.dzeninfra.ru/get-zen_doc/2359038/pub_6006f5ded5d729006d9d8142_6007051e267c3f280bf1964b/scale_1200",
-    title: "AZUKI",
+    title: "NEURON",
     number: "NO. 2666"
   },
   {
     id: 8,
     image: "https://avatars.dzeninfra.ru/get-zen_doc/2359038/pub_6006f5ded5d729006d9d8142_6007051e267c3f280bf1964b/scale_1200",
-    title: "AZUKI",
+    title: "NEURON",
     number: "NO. 5155"
   },
   {
     id: 9,
     image: "https://avatars.dzeninfra.ru/get-zen_doc/2359038/pub_6006f5ded5d729006d9d8142_6007051e267c3f280bf1964b/scale_1200",
-    title: "AZUKI",
+    title: "NEURON",
     number: "NO. 9871"
   },
   {
     id: 10,
     image: "https://avatars.dzeninfra.ru/get-zen_doc/2359038/pub_6006f5ded5d729006d9d8142_6007051e267c3f280bf1964b/scale_1200",
-    title: "AZUKI",
+    title: "NEURON",
     number: "NO. 7084"
   },
 ];
