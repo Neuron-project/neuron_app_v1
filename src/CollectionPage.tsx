@@ -27,17 +27,14 @@ const AppContainer = styled.div`
 
 const CollectionGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid, 100px for image width */
-  gap: 5px;
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(4, 1fr); /* On phones, display 4 images in a row */
-  }
-`;
+   grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+ `;
 
 const CollectionItem = styled.div`
   background-color: #f7f7f7;
   border-radius: 10px;
-  padding: 5px;
+  padding: 10px;
   text-align: center;
 `;
 
@@ -55,7 +52,8 @@ const CollectionImage = styled.img`
 `;
 
 const CollectionText = styled.div`
-  margin-top: 5px;
+font-size: 5px;
+
 `;
 const FlexBoxRow = styled.div`
   display: flex;
