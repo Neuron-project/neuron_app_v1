@@ -203,43 +203,25 @@ function HomePage() {
     update();
   }, [wallet, client]);
   useEffect(() => {
-    const targetDateStorageKey = 'targetDate';
-    const countdownStorageKey = 'countdown';
+    const today = new Date();
+    const targetHour = 14; // 2 PM
+    const targetMinute = 0; // 0 minutes
+    const targetSecond = 0; // 0 seconds
+    const targetDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), targetHour, targetMinute, targetSecond);
   
-    const storedTargetDate = localStorage.getItem(targetDateStorageKey);
-    const storedCountdown = localStorage.getItem(countdownStorageKey);
+    // Add 14 days to the target date
+    targetDate.setDate(targetDate.getDate() + 14);
   
-    if (storedTargetDate && storedCountdown) {
-      const targetDate = new Date(storedTargetDate);
-      const countdown = JSON.parse(storedCountdown);
-  
-      setCountdown(countdown);
-      const intervalId = setInterval(() => {
-        const now = new Date();
-        const timeDiff = targetDate.getTime() - now.getTime();
-        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-        setCountdown({ days, hours, minutes, seconds });
-      }, 1000);
-      return () => clearInterval(intervalId);
-    } else {
-      const targetDate = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000); // 14 days from now
-      localStorage.setItem(targetDateStorageKey, targetDate.toString());
-      setCountdown({ days: 14, hours: 0, minutes: 0, seconds: 0 });
-      const intervalId = setInterval(() => {
-        const now = new Date();
-        const timeDiff = targetDate.getTime() - now.getTime();
-        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-        setCountdown({ days, hours, minutes, seconds });
-        localStorage.setItem(countdownStorageKey, JSON.stringify({ days, hours, minutes, seconds }));
-      }, 1000);
-      return () => clearInterval(intervalId);
-    }
+    const intervalId = setInterval(() => {
+      const now = new Date();
+      const timeDiff = targetDate.getTime() - now.getTime();
+      const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+      setCountdown({ days, hours, minutes, seconds });
+    }, 1000);
+    return () => clearInterval(intervalId);
   }, []);
   const [tonConnectUI, setOptions] = useTonConnectUI();
   const myTransaction = {
