@@ -241,7 +241,14 @@ function HomePage() {
     minutes: 0,
     seconds: 0,
   });
-
+  
+  useEffect(() => {
+    document.documentElement.addEventListener('touchstart', function(event) {
+      if (event.touches.length > 1) {
+        event.preventDefault();
+      }
+    });
+  }, []);
 
   return (
     <StyledApp>

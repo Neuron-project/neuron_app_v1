@@ -129,6 +129,14 @@ function CollectionPage() {
   const [showCollection, setShowCollection] = useState(false);
 
   useEffect(() => {
+    document.documentElement.addEventListener('touchstart', function(event) {
+      if (event.touches.length > 1) {
+        event.preventDefault();
+      }
+    });
+  }, []);
+  
+  useEffect(() => {
     const timer = setTimeout(() => {
       setShowCollection(true);
     }, 100); // Set a 100 millisecond delay
