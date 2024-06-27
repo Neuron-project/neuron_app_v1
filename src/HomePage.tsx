@@ -7,8 +7,8 @@ import { Address, toNano } from "ton";
 import { useTonClient } from './hooks/useTonClient';
 import "@twa-dev/sdk";
 import { TonClient } from 'ton';
-import React from 'react';
 import BottomNavBar from './BottomNavBar'
+
 
 
 
@@ -252,7 +252,7 @@ function HomePage() {
         borderBottomRightRadius: 10
       }}>
         <FlexBoxRow style={{ justifyContent: 'flex-start' }}>
-          <img src="./components/styled/soedinenie_elnzwb49u9y9_512.png" alt="Neuron Icon" style={{
+          <img src="components/styled/soedinenie_elnzwb49u9y9_512.png" alt="Neuron Icon" style={{
             width: 25,
             height: 25
           }} />
