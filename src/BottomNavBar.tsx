@@ -21,7 +21,7 @@ const BottomNavBar: React.FC = () => {
         <NavLink to={item.to} key={item.to} /*activeCaassName='active'*/>
           <img
             src={item.icon}
-            style={{ width: 20, height: 20 }}
+            style={{ width: 25, height: 25 }}
             className="icon"
             alt={item.label}
             aria-label={item.label}
