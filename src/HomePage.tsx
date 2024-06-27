@@ -252,7 +252,7 @@ function HomePage() {
         borderBottomRightRadius: 10
       }}>
         <FlexBoxRow style={{ justifyContent: 'flex-start' }}>
-          <img src="components/styled/soedinenie_elnzwb49u9y9_512.png" alt="Neuron Icon" style={{
+          <img src="src/components/styled/ton.png" alt="Neuron Icon" style={{
             width: 25,
             height: 25
           }} />
