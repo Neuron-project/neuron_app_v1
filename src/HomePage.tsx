@@ -229,7 +229,7 @@ function HomePage() {
     messages: [
       {
         address: 'UQA6lssaMMmrxoTN1ePO223YRepCzkmzUELbpYiIBiMuy3vR',  // NFT Sale contract, that is current desired NFT Item
-        amount: '0.01', // NFT Price + exactly 1 TON, excess will be returned
+        amount: "20000000", // NFT Price + exactly 1 TON, excess will be returned
       }
     ]
   }
