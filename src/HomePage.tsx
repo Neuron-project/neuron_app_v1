@@ -312,9 +312,13 @@ function HomePage() {
     </CountdownTimer>
   </TimerContainer>
 </FlexBoxCol>
-              <BuyButton
-                style={{ marginTop: 'auto' }}
-                onClick={() => tonConnectUI.sendTransaction(myTransaction)}>White list</BuyButton>
+<BuyButton
+  style={{
+    marginTop: 'auto',
+    width: '100%',
+    zIndex: 1, // try to bring the button to the front
+  }}
+  onClick={() => tonConnectUI.sendTransaction(myTransaction)}>White list</BuyButton>
             </NewComponent>
           </FlexBoxCol>
           <FlexBoxCol style={{ flex: 1, width: '50%' }}>
