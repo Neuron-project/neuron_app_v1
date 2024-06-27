@@ -65,61 +65,61 @@ const FlexBoxRow = styled.div`
 const collectionData = [
   {
     id: 1,
-    image: "src/components/styled/nft.png",
+    image: "https://github.com/Neuron-project/neuron_app_v1/blob/main/src/components/styled/nft.png?raw=true",
 
     number: "NO. 5983"
   },
   {
     id: 2,
-    image: "src/components/styled/nft.png",
+    image: "https://github.com/Neuron-project/neuron_app_v1/blob/main/src/components/styled/nft.png?raw=true",
 
     number: "NO. 8620"
   },
   {
     id: 3,
-    image: "src/components/styled/nft.png",
+    image: "https://github.com/Neuron-project/neuron_app_v1/blob/main/src/components/styled/nft.png?raw=true",
 
     number: "NO. 7169"
   },
   {
     id: 4,
-    image: "src/components/styled/nft.png",
+    image: "https://github.com/Neuron-project/neuron_app_v1/blob/main/src/components/styled/nft.png?raw=true",
 
     number: "NO. 4974"
   },
   {
     id: 5,
-    image: "src/components/styled/nft.png",
+    image: "https://github.com/Neuron-project/neuron_app_v1/blob/main/src/components/styled/nft.png?raw=true",
 
     number: "NO. 1069"
   },
   {
     id: 6,
-    image: "src/components/styled/nft.png",
+    image: "https://github.com/Neuron-project/neuron_app_v1/blob/main/src/components/styled/nft.png?raw=true",
 
     number: "NO. 299"
   },
   {
     id: 7,
-    image: "src/components/styled/nft.png",
+    image: "https://github.com/Neuron-project/neuron_app_v1/blob/main/src/components/styled/nft.png?raw=true",
 
     number: "NO. 2666"
   },
   {
     id: 8,
-    image: "src/components/styled/nft.png",
+    image: "https://github.com/Neuron-project/neuron_app_v1/blob/main/src/components/styled/nft.png?raw=true",
 
     number: "NO. 5155"
   },
   {
     id: 9,
-    image: "src/components/styled/nft.png",
+    image: "https://github.com/Neuron-project/neuron_app_v1/blob/main/src/components/styled/nft.png?raw=true",
 
     number: "NO. 9871"
   },
   {
     id: 10,
-    image: "src/components/styled/nft.png",
+    image: "https://github.com/Neuron-project/neuron_app_v1/blob/main/src/components/styled/nft.png?raw=true",
 
     number: "NO. 7084"
   },
