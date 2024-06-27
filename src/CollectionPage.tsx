@@ -145,29 +145,35 @@ function CollectionPage() {
 
   return (
     <StyledApp>
-         <FlexBoxRow style={{ 
-  justifyContent: 'space-between', 
-  alignItems: 'center', 
-  padding: '8px 16px', 
-  backgroundColor: '#f7f7f7', 
-  height: 40, 
-  position: 'absolute', 
-  top: 0, 
-  left: 0, 
-  right: 0, 
-  borderBottomLeftRadius: 10, 
-  borderBottomRightRadius: 10 
-}}>
-  <h2 style={{
-    color: '#666', // серый цвет текста
-    background: 'linear-gradient(to right, #666, #999)', // градиент для текста
-    WebkitBackgroundClip: 'text', // для корректного отображения градиента в Chrome
-    WebkitTextFillColor: 'transparent' // для корректного отображения градиента в Chrome
-  }}>
-    NEURON
-  </h2>
-  <TonConnectButton/> {/* Используем стилизованную кнопку TonConnect */}
-</FlexBoxRow>
+           <FlexBoxRow style={{
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        padding: '8px 16px',
+        backgroundColor: '#f7f7f7',
+        height: 40,
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        borderBottomLeftRadius: 10,
+        borderBottomRightRadius: 10
+      }}>
+        <FlexBoxRow style={{ justifyContent: 'flex-start' }}>
+          <img src="https://github.com/Neuron-project/neuron_app_v1/blob/main/src/components/styled/soedinenie_elnzwb49u9y9_512.png?raw=true" alt="Neuron Icon" style={{
+            width: 25,
+            height: 25
+          }} />
+          <h2 style={{
+            color: '#666', // серый цвет текста
+            background: 'linear-gradient(to right, #666, #999)', // градиент для текста
+            WebkitBackgroundClip: 'text', // для корректного отображения градиента в Chrome
+            WebkitTextFillColor: 'transparent' // для корректного отображения градиента в Chrome
+          }}>
+            NEURON
+          </h2>
+        </FlexBoxRow>
+        <TonConnectButton style={{ marginLeft: 'auto' }} /> {/* Используем стилизованную кнопку TonConnect */}
+      </FlexBoxRow>
       {showCollection && (
         <AppContainer style={{ marginTop: 60, width: "85vw" }}>
           <CollectionGrid>
