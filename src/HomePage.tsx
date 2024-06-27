@@ -145,25 +145,24 @@ const FlexBoxRow = styled.div`
 `;
 
 const TimerContainer = styled.div`
-  padding: 32px;
-  border: 3px solid #888;
-  border-radius: 16px;
+  padding: 16px;
+  border: 2px solid #888;
+  border-radius: 8px;
   background-color: #f9f9f9;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 40px;
+  font-size: 24px;
   font-weight: bold;
   width: 100%;
   box-sizing: border-box;
 `;
 
 const CountdownTimer = styled.span`
-  font-size: 56px;
+  font-size: 24px;
   font-weight: bold;
-  margin: 0 12px;
+  margin: 0 8px;
 `;
-
 
 
 
