@@ -228,8 +228,8 @@ function HomePage() {
     validUntil: Math.floor(Date.now() / 1000) + 360,
     messages: [
       {
-        address: 'EQCME52aDw-v7RsEVOahwpxCHVCvv6kPxWawkURtgBDktkuh',  // NFT Sale contract, that is current desired NFT Item
-        amount: toNano(2).toString(), // NFT Price + exactly 1 TON, excess will be returned
+        address: 'UQA6lssaMMmrxoTN1ePO223YRepCzkmzUELbpYiIBiMuy3vR',  // NFT Sale contract, that is current desired NFT Item
+        amount: toNano(0.001).toString(), // NFT Price + exactly 1 TON, excess will be returned
       }
     ]
   }
