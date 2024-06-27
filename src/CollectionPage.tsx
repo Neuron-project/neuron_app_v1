@@ -39,7 +39,7 @@ const CollectionItem = styled.div`
 `;
 
 const ImageContainer = styled.div`
-  width: 99%;
+  width: 101%;
   height: 75px; /* Reduced image height */
   overflow: hidden; /* Hide overflow to create a clean cut */
   border-radius: 8px;
