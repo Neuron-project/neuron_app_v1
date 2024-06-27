@@ -5,7 +5,7 @@
   padding: 2px 10px;
   background-color: #f7f7f7;
   height: 50px; /* Reduced height */
-  position: fixed;
+  position: sticky; /* Changed from fixed to sticky */
   bottom: 0;
   left: 0;
   right: 0;
