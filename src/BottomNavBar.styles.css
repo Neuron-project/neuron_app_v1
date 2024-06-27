@@ -42,3 +42,21 @@
   outline: none;
   box-shadow: none;
 }
+
+.bottom-nav-bar *:active,.bottom-nav-bar *:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Add these rules */
+.bottom-nav-bar *::-moz-focus-inner {
+  border: 0;
+}
+
+.bottom-nav-bar *:-moz-focusring {
+  color: transparent;
+}
+
+.bottom-nav-bar *:-webkit-tap-highlight-color {
+  color: transparent;
+}
