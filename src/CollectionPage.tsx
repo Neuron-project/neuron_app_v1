@@ -34,13 +34,13 @@ const CollectionGrid = styled.div`
 const CollectionItem = styled.div`
   background-color: #f7f7f7;
   border-radius: 10px;
-  padding: 10px;
+  padding: 0px;
   text-align: center;
 `;
 
 const ImageContainer = styled.div`
-  width: 100%;
-  height: 50px; /* Reduced image height */
+  width: 99%;
+  height: 75px; /* Reduced image height */
   overflow: hidden; /* Hide overflow to create a clean cut */
   border-radius: 8px;
 `;
@@ -65,62 +65,62 @@ const FlexBoxRow = styled.div`
 const collectionData = [
   {
     id: 1,
-    image: "https://avatars.dzeninfra.ru/get-zen_doc/2359038/pub_6006f5ded5d729006d9d8142_6007051e267c3f280bf1964b/scale_1200",
-    title: "NEURON",
+    image: "src/components/styled/nft.png",
+
     number: "NO. 5983"
   },
   {
     id: 2,
-    image: "https://avatars.dzeninfra.ru/get-zen_doc/2359038/pub_6006f5ded5d729006d9d8142_6007051e267c3f280bf1964b/scale_1200",
-    title: "NEURON",
+    image: "src/components/styled/nft.png",
+
     number: "NO. 8620"
   },
   {
     id: 3,
-    image: "https://avatars.dzeninfra.ru/get-zen_doc/2359038/pub_6006f5ded5d729006d9d8142_6007051e267c3f280bf1964b/scale_1200",
-    title: "NEURON",
+    image: "src/components/styled/nft.png",
+
     number: "NO. 7169"
   },
   {
     id: 4,
-    image: "https://avatars.dzeninfra.ru/get-zen_doc/2359038/pub_6006f5ded5d729006d9d8142_6007051e267c3f280bf1964b/scale_1200",
-    title: "NEURON",
+    image: "src/components/styled/nft.png",
+
     number: "NO. 4974"
   },
   {
     id: 5,
-    image: "https://avatars.dzeninfra.ru/get-zen_doc/2359038/pub_6006f5ded5d729006d9d8142_6007051e267c3f280bf1964b/scale_1200",
-    title: "NEURON",
+    image: "src/components/styled/nft.png",
+
     number: "NO. 1069"
   },
   {
     id: 6,
-    image: "https://avatars.dzeninfra.ru/get-zen_doc/2359038/pub_6006f5ded5d729006d9d8142_6007051e267c3f280bf1964b/scale_1200",
-    title: "NEURON",
+    image: "src/components/styled/nft.png",
+
     number: "NO. 299"
   },
   {
     id: 7,
-    image: "https://avatars.dzeninfra.ru/get-zen_doc/2359038/pub_6006f5ded5d729006d9d8142_6007051e267c3f280bf1964b/scale_1200",
-    title: "NEURON",
+    image: "src/components/styled/nft.png",
+
     number: "NO. 2666"
   },
   {
     id: 8,
-    image: "https://avatars.dzeninfra.ru/get-zen_doc/2359038/pub_6006f5ded5d729006d9d8142_6007051e267c3f280bf1964b/scale_1200",
-    title: "NEURON",
+    image: "src/components/styled/nft.png",
+
     number: "NO. 5155"
   },
   {
     id: 9,
-    image: "https://avatars.dzeninfra.ru/get-zen_doc/2359038/pub_6006f5ded5d729006d9d8142_6007051e267c3f280bf1964b/scale_1200",
-    title: "NEURON",
+    image: "src/components/styled/nft.png",
+
     number: "NO. 9871"
   },
   {
     id: 10,
-    image: "https://avatars.dzeninfra.ru/get-zen_doc/2359038/pub_6006f5ded5d729006d9d8142_6007051e267c3f280bf1964b/scale_1200",
-    title: "NEURON",
+    image: "src/components/styled/nft.png",
+
     number: "NO. 7084"
   },
 ];
@@ -166,10 +166,9 @@ function CollectionPage() {
             {collectionData.map((item) => (
               <CollectionItem key={item.id}>
                 <ImageContainer>
-                  <CollectionImage src={item.image} alt={item.title} />
+                  <CollectionImage src={item.image} />
                 </ImageContainer>
                 <CollectionText>
-                  <p>{item.title}</p>
                   <p>{item.number}</p>
                 </CollectionText>
               </CollectionItem>
