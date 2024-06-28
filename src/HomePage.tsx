@@ -202,27 +202,34 @@ function HomePage() {
     };
     update();
   }, [wallet, client]);
+  const [countdown, setCountdown] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+  
+  const targetDate = new Date('2024-07-14T10:00:00.000Z'); // June 28, 2024, 10:00 AM
+  
   useEffect(() => {
-    const today = new Date();
-    const targetHour = 14; // 2 PM
-    const targetMinute = 0; // 0 minutes
-    const targetSecond = 0; // 0 seconds
-    const targetDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), targetHour, targetMinute, targetSecond);
-  
-    // Add 14 days to the target date
-    targetDate.setDate(targetDate.getDate() + 14);
-  
-    const intervalId = setInterval(() => {
+    let intervalId;
+    const updateCountdown = () => {
       const now = new Date();
       const timeDiff = targetDate.getTime() - now.getTime();
-      const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-      setCountdown({ days, hours, minutes, seconds });
-    }, 1000);
+      if (timeDiff <= 0) {
+        setCountdown({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      } else {
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+        setCountdown({ days, hours, minutes, seconds });
+      }
+    };
+  
+    intervalId = setInterval(updateCountdown, 1000);
     return () => clearInterval(intervalId);
-  }, []);
+  }, [targetDate]);
   const [tonConnectUI, setOptions] = useTonConnectUI();
   const myTransaction = {
     validUntil: Math.floor(Date.now() / 1000) + 360,
@@ -233,15 +240,6 @@ function HomePage() {
       }
     ]
   }
-
-
-  const [countdown, setCountdown] = useState({
-    days: 14,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-  
   useEffect(() => {
     document.documentElement.addEventListener('touchstart', function(event) {
       if (event.touches.length > 1) {
@@ -308,7 +306,10 @@ function HomePage() {
   </span>
   <TimerContainer style={{ marginTop: -16 }}>
     <CountdownTimer>
-      {countdown.days}:{countdown.hours}:{countdown.minutes}:{countdown.seconds}
+    {countdown.days.toString().padStart(2, '0')}: 
+  {countdown.hours.toString().padStart(2, '0')}: 
+  {countdown.minutes.toString().padStart(2, '0')}: 
+  {countdown.seconds.toString().padStart(2, '0')}
     </CountdownTimer>
   </TimerContainer>
 </FlexBoxCol>
@@ -317,8 +318,23 @@ function HomePage() {
     marginTop: 'auto',
     width: '100%',
     zIndex: 1, // try to bring the button to the front
+    fontSize: 24, // increase font size
+    fontWeight: 700, // make font bold
+    letterSpacing: 2, // add some letter spacing
+    textTransform: 'uppercase', // make text uppercase
+    color: '#fff', // change text color to white
+    backgroundColor: '#000', // change background color to black
+    borderRadius: 10, // add some border radius
+    padding: '12px 24px', // add some padding
+    cursor: 'pointer', // change cursor to pointer
+    transition: 'background 0.3s ease-in-out', // add some transition effect
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)', // add some box shadow
+    WebkitTapHighlightColor: 'transparent', // remove blue highlight on tap (for mobile)
   }}
-  onClick={() => tonConnectUI.sendTransaction(myTransaction)}>White list</BuyButton>
+  onClick={() => tonConnectUI.sendTransaction(myTransaction)}
+>
+  Whitelist
+</BuyButton>
             </NewComponent>
           </FlexBoxCol>
           <FlexBoxCol style={{ flex: 1, width: '50%' }}>

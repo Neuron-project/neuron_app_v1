@@ -13,14 +13,15 @@
   transition: background-color 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px; /* Add this line */
+  -webkit-tap-highlight-color: transparent; /* Add this line */
 }
-
 
 .bottom-nav-bar > * {
   flex-grow: 1;
   text-align: center;
   font-size: 12px; /* Reduced font size */
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent; /* Add this line */
 }
 
 .bottom-nav-bar.icon {
@@ -41,22 +42,4 @@
 .bottom-nav-bar *:active, .bottom-nav-bar *:focus {
   outline: none;
   box-shadow: none;
-}
-
-.bottom-nav-bar *:active,.bottom-nav-bar *:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-/* Add these rules */
-.bottom-nav-bar *::-moz-focus-inner {
-  border: 0;
-}
-
-.bottom-nav-bar *:-moz-focusring {
-  color: transparent;
-}
-
-.bottom-nav-bar *:-webkit-tap-highlight-color {
-  color: transparent;
 }
