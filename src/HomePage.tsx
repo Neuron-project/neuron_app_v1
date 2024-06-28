@@ -215,7 +215,7 @@ function HomePage() {
     let intervalId: NodeJS.Timer;
     const updateCountdown = () => {
       const now = new Date();
-      const timeDiff = targetDate.getTime() - now.getTime();
+      const timeDiff = targetDate.getTime() - now.getTime(); 
       if (timeDiff <= 0) {
         setCountdown({ days: 0, hours: 0, minutes: 0, seconds: 0 });
       } else {
