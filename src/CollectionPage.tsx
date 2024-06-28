@@ -77,7 +77,7 @@ const collectionData = [
   },
   {
     id: 3,
-    image: "https://github.com/Neuron-project/neuron_app_v1/blob/main/src/components/styled/nft.png?raw=true",
+    image: "https://downloader.disk.yandex.ru/preview/5fe2fa5af541adb9f01c68389ef282407d55cb699af7d9aee4795d95da7d7ff1/667ea766/zXMvliGMS8hS6Hr4xLUkQoQERc_tieMe8BFCn0dsg894IBP__0HsqY1AwOnxCNQOJ0G7w8MzTzjOaeW_2NwUZg%3D%3D?uid=0&filename=Neuron%20NFT%201.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=2048x2048",
 
     number: "NO. 7169"
   },
