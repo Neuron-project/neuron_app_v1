@@ -212,7 +212,7 @@ function HomePage() {
   const targetDate = new Date('2024-07-14T10:00:00.000Z'); // June 28, 2024, 10:00 AM
   
   useEffect(() => {
-    let intervalId;
+    let intervalId: NodeJS.Timer;
     const updateCountdown = () => {
       const now = new Date();
       const timeDiff = targetDate.getTime() - now.getTime();
@@ -228,8 +228,8 @@ function HomePage() {
     };
   
     intervalId = setInterval(updateCountdown, 1000);
-    return () => clearInterval(intervalId);
-  }, [targetDate]);
+  return () => clearInterval(intervalId);
+}, [targetDate]);
   const [tonConnectUI, setOptions] = useTonConnectUI();
   const myTransaction = {
     validUntil: Math.floor(Date.now() / 1000) + 360,
