@@ -1,6 +1,6 @@
 {
   "name": "ton-starter-twa-vite",
-  "homepage": "https://neuron-project.github.io/neuron_app_v1/",
+  "homepage": ".",
   "private": true,
   "version": "0.0.0",
   "type": "module",
