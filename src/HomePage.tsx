@@ -8,7 +8,7 @@ import { useTonClient } from './hooks/useTonClient';
 import "@twa-dev/sdk";
 import { TonClient } from 'ton';
 import BottomNavBar from './BottomNavBar'
-import image from "src\components\styled\ton.png";
+import image from "./components/styled/ton.png";
 
 
 
