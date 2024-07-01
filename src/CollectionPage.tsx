@@ -88,25 +88,23 @@ function CollectionPage() {
   const [showCollection, setShowCollection] = useState(false);
 
   useEffect(() => {
-    document.documentElement.addEventListener('touchstart', function(event) {
+    document.documentElement.addEventListener('touchstart', function (event) {
       if (event.touches.length > 1) {
         event.preventDefault();
       }
     });
   }, []);
-  
+
   useEffect(() => {
-    loadCollectionData();
-    const timer = setTimeout(() => {
+    loadCollectionData().then(() => {
       setShowCollection(true);
-    }, 100);
-    return () => clearTimeout(timer);
+    });
   }, []);
 
 
   return (
     <StyledApp>
-           <FlexBoxRow style={{
+      <FlexBoxRow style={{
         justifyContent: 'flex-start',
         alignItems: 'center',
         padding: '8px 16px',
