@@ -297,7 +297,7 @@ function HomePage() {
                   <span style={{ fontSize: 24, fontWeight: 700, color: '#666' }}>
                     {tonAmount}
                   </span>
-                  <img src="https://github.com/Neuron-project/neuron_app_v1/blob/main/src/components/styled/ton.png?raw=true" alt="TON icon" style={{ width: 24, height: 24, verticalAlign: 'middle', marginLeft: 8 }} />
+                  <img src="src/components/styled/ton.png" alt="TON icon" style={{ width: 24, height: 24, verticalAlign: 'middle', marginLeft: 8 }} />
                 </FlexBoxRow>
               </FlexBoxRow>
               <FlexBoxCol style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 24 }}>
