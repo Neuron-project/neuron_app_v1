@@ -5,8 +5,7 @@ import styled from "styled-components";
 import "@twa-dev/sdk";
 import BottomNavBar from "./BottomNavBar";
 import AppIcon from "./components/styled/AppIcon.png";
-import NFT1 from "./components/styled/nft/Neuron NFT 1.png";
-import NFT2 from "./components/styled/nft/Neuron NFT 2.png";
+
 
 
 
@@ -67,16 +66,23 @@ const FlexBoxRow = styled.div`
   gap: 10px;
 `;
 
-const collectionData: { id: number; image: any; number: string; }[] = [];
-
-for (let i = 1; i <= 120; i++) {
-  const nftImage = await import(`./components/styled/nft/Neuron NFT ${i}.png`);
-  collectionData.push({
-    id: i,
-    image: nftImage.default, // <--- Use the default property
-    number: `NO. ${String(i).padStart(3, '0')}`
-  });
+interface CollectionItem {
+  id: number;
+  image: any;
+  number: string;
 }
+const collectionData: CollectionItem[] = [];
+
+const loadCollectionData = async () => {
+  for (let i = 1; i <= 120; i++) {
+    const nftImage = await import(`./components/styled/nft/Neuron NFT ${i}.png`);
+    collectionData.push({
+      id: i,
+      image: nftImage.default,
+      number: `NO. ${String(i).padStart(3, "0")}`
+    });
+  }
+};
 
 function CollectionPage() {
   const [showCollection, setShowCollection] = useState(false);
@@ -90,11 +96,13 @@ function CollectionPage() {
   }, []);
   
   useEffect(() => {
+    loadCollectionData();
     const timer = setTimeout(() => {
       setShowCollection(true);
-    }, 100); // Set a 100 millisecond delay
+    }, 100);
     return () => clearTimeout(timer);
   }, []);
+
 
   return (
     <StyledApp>
