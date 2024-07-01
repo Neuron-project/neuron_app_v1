@@ -65,19 +65,19 @@ const FlexBoxRow = styled.div`
 const collectionData = [
   {
     id: 1,
-    image: "https://downloader.disk.yandex.ru/preview/5fe2fa5af541adb9f01c68389ef282407d55cb699af7d9aee4795d95da7d7ff1/667ea766/zXMvliGMS8hS6Hr4xLUkQoQERc_tieMe8BFCn0dsg894IBP__0HsqY1AwOnxCNQOJ0G7w8MzTzjOaeW_2NwUZg%3D%3D?uid=0&filename=Neuron%20NFT%201.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=2048x2048",
+    image: "https://downloader.disk.yandex.ru/preview/e7ea17cc9e1c7df25f33c5151aedcbc84fe847eedb7a5daf44db8d219b4e8513/6682a6e9/zXMvliGMS8hS6Hr4xLUkQoQERc_tieMe8BFCn0dsg894IBP__0HsqY1AwOnxCNQOJ0G7w8MzTzjOaeW_2NwUZg%3D%3D?uid=0&filename=Neuron%20NFT%201.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=2048x2048",
 
     number: "NO. 5983"
   },
   {
     id: 2,
-    image: "https://downloader.disk.yandex.ru/preview/5fe2fa5af541adb9f01c68389ef282407d55cb699af7d9aee4795d95da7d7ff1/667ea766/zXMvliGMS8hS6Hr4xLUkQoQERc_tieMe8BFCn0dsg894IBP__0HsqY1AwOnxCNQOJ0G7w8MzTzjOaeW_2NwUZg%3D%3D?uid=0&filename=Neuron%20NFT%201.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=2048x2048",
+    image: "https://downloader.disk.yandex.ru/preview/847a8026f947bdbed44c7f79e9490812d2d134d2bfaf6bded77fedee90e2373f/667eae1e/qDblvd_CopKvaWHw1HDDzIQERc_tieMe8BFCn0dsg884YOrIobs6kD0dh1tFVCy2x7mWblUxa72CONMbtwhUaA%3D%3D?uid=0&filename=Neuron%20NFT%2010.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=2048x2048",
 
     number: "NO. 8620"
   },
   {
     id: 3,
-    image: "https://downloader.disk.yandex.ru/preview/5fe2fa5af541adb9f01c68389ef282407d55cb699af7d9aee4795d95da7d7ff1/667ea766/zXMvliGMS8hS6Hr4xLUkQoQERc_tieMe8BFCn0dsg894IBP__0HsqY1AwOnxCNQOJ0G7w8MzTzjOaeW_2NwUZg%3D%3D?uid=0&filename=Neuron%20NFT%201.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=2048x2048",
+    image: "https://downloader.disk.yandex.ru/preview/dd9d88d7c06f3a9c11adfb183e202dda5c18744cfbd96e2150c3cde885569f2e/667eae2f/ax9tbDzKze4YkbkspHlweIQERc_tieMe8BFCn0dsg8-vvr2sEkgEFHMJcJI5wUrXcFZkm8efe-PuKXvrUt9auA%3D%3D?uid=0&filename=Neuron%20NFT%20100.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=2048x2048",
 
     number: "NO. 7169"
   },
