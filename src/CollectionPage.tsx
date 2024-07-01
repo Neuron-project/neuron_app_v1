@@ -111,18 +111,7 @@ const collectionData = [
 
     number: "NO. 5155"
   },
-  {
-    id: 9,
-    image: "https://github.com/Neuron-project/neuron_app_v1/blob/main/src/components/styled/nft.png?raw=true",
 
-    number: "NO. 9871"
-  },
-  {
-    id: 10,
-    image: "https://github.com/Neuron-project/neuron_app_v1/blob/main/src/components/styled/nft.png?raw=true",
-
-    number: "NO. 7084"
-  },
 ];
 
 function CollectionPage() {
