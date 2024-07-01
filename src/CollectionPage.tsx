@@ -4,6 +4,7 @@ import { TonConnectButton } from "@tonconnect/ui-react";
 import styled from "styled-components";
 import "@twa-dev/sdk";
 import BottomNavBar from "./BottomNavBar";
+import AppIcon from "./components/styled/AppIcon.png";
 
 const StyledApp = styled.div`
   position: fixed;
@@ -148,7 +149,7 @@ function CollectionPage() {
         borderBottomRightRadius: 10
       }}>
         <FlexBoxRow style={{ justifyContent: 'flex-start' }}>
-          <img src="https://github.com/Neuron-project/neuron_app_v1/blob/main/src/components/styled/soedinenie_elnzwb49u9y9_512.png?raw=true" alt="Neuron Icon" style={{
+          <img src={AppIcon} alt="Neuron Icon" style={{
             width: 25,
             height: 25
           }} />
