@@ -8,6 +8,7 @@ import { useTonClient } from './hooks/useTonClient';
 import "@twa-dev/sdk";
 import { TonClient } from 'ton';
 import BottomNavBar from './BottomNavBar'
+import image from "src\components\styled\ton.png";
 
 
 
@@ -209,7 +210,7 @@ function HomePage() {
     seconds: 0,
   });
   
-  const targetDate = new Date('2024-07-14T10:00:00.000Z'); // June 28, 2024, 10:00 AM
+  const targetDate = new Date('2024-07-15T10:00:00.000Z'); // June 28, 2024, 10:00 AM
   
   useEffect(() => {
     let intervalId: NodeJS.Timer;
@@ -297,7 +298,7 @@ function HomePage() {
                   <span style={{ fontSize: 24, fontWeight: 700, color: '#666' }}>
                     {tonAmount}
                   </span>
-                  <img src=".\src\components\styled\ton.png" alt="TON icon" style={{ width: 24, height: 24, verticalAlign: 'middle', marginLeft: 8 }} />
+                  <img src={image} alt="TON icon" style={{ width: 24, height: 24, verticalAlign: 'middle', marginLeft: 8 }} />
                 </FlexBoxRow>
               </FlexBoxRow>
               <FlexBoxCol style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 24 }}>
