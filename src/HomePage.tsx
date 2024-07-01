@@ -8,7 +8,9 @@ import { useTonClient } from './hooks/useTonClient';
 import "@twa-dev/sdk";
 import { TonClient } from 'ton';
 import BottomNavBar from './BottomNavBar'
-import image from "./components/styled/ton.png";
+import TonIcon from "./components/styled/ton.png";
+import AppIcon from "./components/styled/AppIcon.png";
+
 
 
 
@@ -265,7 +267,7 @@ function HomePage() {
         borderBottomRightRadius: 10
       }}>
         <FlexBoxRow style={{ justifyContent: 'flex-start' }}>
-          <img src="https://github.com/Neuron-project/neuron_app_v1/blob/main/src/components/styled/soedinenie_elnzwb49u9y9_512.png?raw=true" alt="Neuron Icon" style={{
+          <img src={AppIcon} alt="Neuron Icon" style={{
             width: 25,
             height: 25
           }} />
@@ -298,7 +300,7 @@ function HomePage() {
                   <span style={{ fontSize: 24, fontWeight: 700, color: '#666' }}>
                     {tonAmount}
                   </span>
-                  <img src={image} alt="TON icon" style={{ width: 24, height: 24, verticalAlign: 'middle', marginLeft: 8 }} />
+                  <img src={TonIcon} alt="TON icon" style={{ width: 24, height: 24, verticalAlign: 'middle', marginLeft: 8 }} />
                 </FlexBoxRow>
               </FlexBoxRow>
               <FlexBoxCol style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 24 }}>

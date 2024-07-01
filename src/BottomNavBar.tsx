@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './BottomNavBar.styles.css';
+import WalletIcon from "./components/styled/WalletIcon.png";
+import CollectionIcon from "./components/styled/CollectionIcon.png";
 
 
 interface NavItem {
@@ -10,8 +12,8 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { to: `/`, icon: 'https://github.com/Neuron-project/neuron_app_v1/blob/main/src/components/styled/5fb28192-53e7-4c89-8651-22504e64a5c5.png?raw=true', label: 'Wallet' },
-  { to: `/collection`, icon: 'https://github.com/Neuron-project/neuron_app_v1/blob/main/src/components/styled/6fdf801c-682f-455a-aca6-69c7319bce33.png?raw=true', label: 'Collection' },
+  { to: `/`, icon: WalletIcon, label: 'Wallet' },
+  { to: `/collection`, icon: CollectionIcon, label: 'Collection' },
 ];
 
 const BottomNavBar: React.FC = () => {
