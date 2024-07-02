@@ -212,27 +212,30 @@ function HomePage() {
     seconds: 0,
   });
   
-  const targetDate = new Date('2024-07-15T10:00:00.000Z'); // June 28, 2024, 10:00 AM
-  
-  useEffect(() => {
-    let intervalId: NodeJS.Timer;
-    const updateCountdown = () => {
-      const now = new Date();
-      const timeDiff = targetDate.getTime() - now.getTime(); 
-      if (timeDiff <= 0) {
-        setCountdown({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-      } else {
-        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-        setCountdown({ days, hours, minutes, seconds });
-      }
-    };
-  
-    intervalId = setInterval(updateCountdown, 1000);
+  const targetDate = new Date('2024-07-15T10:00:00.000Z');
+const now = new Date();
+
+useEffect(() => {
+  const timeDiff = targetDate.getTime() - now.getTime();
+  const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+  setCountdown({ days, hours, minutes, seconds });
+
+  const intervalId = setInterval(() => {
+    now.setTime(now.getTime() + 1000);
+    const timeDiff = targetDate.getTime() - now.getTime();
+    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+    setCountdown({ days, hours, minutes, seconds });
+  }, 1000);
+
   return () => clearInterval(intervalId);
-}, [targetDate]);
+}, []); // <--- empty dependency array
   const [tonConnectUI, setOptions] = useTonConnectUI();
   const myTransaction = {
     validUntil: Math.floor(Date.now() / 1000) + 360,
