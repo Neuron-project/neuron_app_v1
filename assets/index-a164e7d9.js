@@ -1211,7 +1211,7 @@ Values:
   top: 0;
   left: 0;
   width: 90vw;
-  height: 80vh;
+  height: 100vh;
   padding: 20px 20px;
   overflow: hidden;
   background-color: #fff;
