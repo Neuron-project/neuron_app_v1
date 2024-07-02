@@ -12,6 +12,7 @@
   border-radius: 15px;
   transition: background-color 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  inset-block-end: env(safe-area-inset-bottom)!important;
   /* Remove the margin-bottom property */
 }
 
