@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./App.css";
 import { TonConnectButton } from "@tonconnect/ui-react";
 import styled from "styled-components";
@@ -32,7 +32,7 @@ const CollectionGridContainer = styled.div`
   -webkit-scrollbar: none; /* Add this to hide the scrollbar in WebKit browsers */
   -moz-scrollbar: none; /* Add this to hide the scrollbar in Mozilla browsers */
   scrollbar-width: none; /* Add this to hide the scrollbar in modern browsers */
-  height: 70vh; /* Keep the fixed height */
+  height: 80vh; /* Keep the fixed height */
   padding: 10px;
 `;
 
@@ -73,39 +73,38 @@ const FlexBoxRow = styled.div`
   gap: 10px;
 `;
 
-const imageCache: { [key: string]: any } = {};
-
-const getImageUrl = (imageKey: string) => {
-  return new URL(`./components/styled/${imageKey}`, import.meta.url).href;
-};
-
-const loadCollectionData = async () => {
-  const batchSize = 20;
-  for (let i = 1; i <= 120; i += batchSize) {
-    const batch = [];
-    for (let j = i; j < i + batchSize; j++) {
-      const imageKey = `nft/Neuron NFT ${j}.png`;
-      const imageUrl = getImageUrl(imageKey);
-      batch.push({
-        id: j,
-        image: imageUrl,
-        number: `NO. ${String(j).padStart(3, "0")}`,
-      });
-    }
-    collectionData.push(...batch);
-  }
-};
-
-const collectionData: { id: number; image: any; number: string }[] = [];
 
 function CollectionPage() {
+  const [collectionData, setCollectionData] = useState<{ id: number; image: string; number: string }[]>([]);
   const [showCollection, setShowCollection] = useState(false);
 
+  const getImageUrl = (imageKey: string) => {
+    return new URL(`./components/styled/${imageKey}`, import.meta.url).href;
+  };
+
+  const loadCollectionData = useCallback(async () => {
+    const batchSize = 20;
+    const data = [];
+    for (let i = 1; i <= 120; i += batchSize) {
+      const batch = [];
+      for (let j = i; j < i + batchSize; j++) {
+        const imageKey = `nft/Neuron NFT ${j}.png`;
+        const imageUrl = getImageUrl(imageKey);
+        batch.push({
+          id: j,
+          image: imageUrl,
+          number: `NO. ${String(j).padStart(3, "0")}`,
+        });
+      }
+      data.push(...batch);
+    }
+    setCollectionData(data);
+    setShowCollection(true);
+  }, [getImageUrl]);
+
   useEffect(() => {
-    loadCollectionData().then(() => {
-      setShowCollection(true);
-    });
-  }, []);
+    loadCollectionData();
+  }, [loadCollectionData]);
 
   return (
     <StyledApp>
