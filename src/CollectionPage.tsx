@@ -5,6 +5,9 @@ import styled from "styled-components";
 import "@twa-dev/sdk";
 import BottomNavBar from "./BottomNavBar";
 import AppIcon from "./components/styled/AppIcon.png";
+import  LazyLoad  from "react-lazy-load";
+
+
 
 
 
@@ -66,40 +69,41 @@ const FlexBoxRow = styled.div`
   gap: 10px;
 `;
 
-interface CollectionItem {
-  id: number;
-  image: any;
-  number: string;
-}
-const collectionData: CollectionItem[] = [];
+
+const imageCache: {[key: string]: any } = {};
+
+const getImageUrl = (imageKey: string) => {
+  return new URL(`./components/styled/${imageKey}`, import.meta.url).href;
+};
 
 const loadCollectionData = async () => {
-  for (let i = 1; i <= 120; i++) {
-    const nftImage = await import(`./components/styled/nft/Neuron NFT ${i}.png`);
-    collectionData.push({
-      id: i,
-      image: nftImage.default,
-      number: `NO. ${String(i).padStart(3, "0")}`
-    });
+  const batchSize = 20;
+  for (let i = 1; i <= 120; i += batchSize) {
+    const batch = [];
+    for (let j = i; j < i + batchSize; j++) {
+      const imageKey = `nft/Neuron NFT ${j}.png`;
+      const imageUrl = getImageUrl(imageKey);
+      batch.push({
+        id: j,
+        image: imageUrl,
+        number: `NO. ${String(j).padStart(3, "0")}`,
+      });
+    }
+    collectionData.push(...batch);
   }
 };
 
+const collectionData: { id: number; image: any; number: string; }[] = [];
+
 function CollectionPage() {
   const [showCollection, setShowCollection] = useState(false);
-
-  useEffect(() => {
-    document.documentElement.addEventListener('touchstart', function (event) {
-      if (event.touches.length > 1) {
-        event.preventDefault();
-      }
-    });
-  }, []);
 
   useEffect(() => {
     loadCollectionData().then(() => {
       setShowCollection(true);
     });
   }, []);
+
 
 
   return (
@@ -135,18 +139,20 @@ function CollectionPage() {
       </FlexBoxRow>
       {showCollection && (
         <AppContainer style={{ marginTop: 60, width: "85vw" }}>
-          <CollectionGrid>
-            {collectionData.map((item) => (
-              <CollectionItem key={item.id}>
-                <ImageContainer>
-                  <CollectionImage src={item.image} />
-                </ImageContainer>
-                <CollectionText>
-                  <p>{item.number}</p>
-                </CollectionText>
-              </CollectionItem>
-            ))}
-          </CollectionGrid>
+         <CollectionGrid>
+  {collectionData.map((item) => (
+  <CollectionItem key={item.id}>
+  <ImageContainer>
+    <LazyLoad>
+      <CollectionImage src={item.image} />
+    </LazyLoad>
+  </ImageContainer>
+  <CollectionText>
+    <p>{item.number}</p>
+  </CollectionText>
+</CollectionItem>
+  ))}
+</CollectionGrid>
         </AppContainer>
       )}
       <BottomNavBar />
