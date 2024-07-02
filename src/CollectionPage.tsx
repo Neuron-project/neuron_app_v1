@@ -8,33 +8,31 @@ import AppIcon from "./components/styled/AppIcon.png";
 import LazyLoad from "react-lazy-load";
 
 const StyledApp = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 90vw;
-  height: 100vh; /* Set height to 100vh */
-  overflow: hidden; /* Set overflow to hidden */
   padding: 20px 20px;
   background-color: #fff;
+  overflow: hidden;
+  height: 100vh;
+  position: fixed; /* Add this to fix the app in place */
+  top: 0;
+  left: 0;
 `;
 
 const AppContainer = styled.div`
   max-width: 900px;
-  margin: 0 auto;
+  margin: 0 auto; /* Center the content */
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Arrange items vertically */
   gap: 10px;
   padding: 0 10px;
-  overflow-anchor: none; /* Add this */
 `;
 
 const CollectionGridContainer = styled.div`
-  overflow-y: scroll; /* Change from auto to scroll */
-  -webkit-scrollbar: none; /* Add this to hide the scrollbar in WebKit browsers */
-  -moz-scrollbar: none; /* Add this to hide the scrollbar in Mozilla browsers */
-  scrollbar-width: none; /* Add this to hide the scrollbar in modern browsers */
-  -webkit-overflow-scrolling: touch; /* Add this */
-  height: 70vh; /* Keep the fixed height */
+  overflow-y: auto; /* Add this to prevent grid overflow */
+  -webkit-scrollbar: none;
+  -moz-scrollbar: none;
+  scrollbar-width: none;
+  height: 70vh;
   padding: 10px;
 `;
 
@@ -110,10 +108,7 @@ function CollectionPage() {
   }, []);
 
   return (
-    <StyledApp
-    onTouchStart={(e) => e.preventDefault()} /* Add this */
-    onTouchMove={(e) => e.preventDefault()} /* Add this */
-    >
+    <StyledApp>
       <FlexBoxRow
         style={{
           justifyContent: "flex-start",
@@ -152,24 +147,26 @@ function CollectionPage() {
         <TonConnectButton style={{ marginLeft: "auto" }} /> {/* Используем стилизованную кнопку TonConnect */}
       </FlexBoxRow>
       {showCollection && (
-        <AppContainer style={{ marginTop: 60, width: "85vw" }}>
-          <CollectionGridContainer>
-            <CollectionGrid>
-              {collectionData.map((item) => (
-                <CollectionItem key={item.id}>
-                  <ImageContainer>
-                    <LazyLoad>
-                      <CollectionImage src={item.image} />
-                    </LazyLoad>
-                  </ImageContainer>
-                  <CollectionText>
-                    <p>{item.number}</p>
-                  </CollectionText>
-                </CollectionItem>
-              ))}
-            </CollectionGrid>
-          </CollectionGridContainer>
-        </AppContainer>
+       <AppContainer style={{ marginTop: 60, width: "85vw" }}>
+       <div style={{ overflowY: 'auto', height: 'calc(100vh - 60px)' }}>
+         <CollectionGridContainer>
+           <CollectionGrid>
+             {collectionData.map((item) => (
+               <CollectionItem key={item.id}>
+                 <ImageContainer>
+                   <LazyLoad>
+                     <CollectionImage src={item.image} />
+                   </LazyLoad>
+                 </ImageContainer>
+                 <CollectionText>
+                   <p>{item.number}</p>
+                 </CollectionText>
+               </CollectionItem>
+             ))}
+           </CollectionGrid>
+         </CollectionGridContainer>
+       </div>
+     </AppContainer>
       )}
       <BottomNavBar />
     </StyledApp>
