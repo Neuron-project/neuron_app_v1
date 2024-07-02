@@ -12,9 +12,9 @@ const StyledApp = styled.div`
   top: 0;
   left: 0;
   width: 90vw;
-  height: 100vh;
+  height: 100vh; /* Set height to 100vh */
+  overflow: hidden; /* Set overflow to hidden */
   padding: 20px 20px;
-  overflow: hidden;
   background-color: #fff;
 `;
 
