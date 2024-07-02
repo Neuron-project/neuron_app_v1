@@ -6,19 +6,13 @@
   background-color: #f7f7f7;
   height: 50px;
   position: fixed;
-  bottom: 0;
+  bottom: 2vh;
   left: 0;
   right: 0;
   border-radius: 15px;
   transition: background-color 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  inset-block-end: env(safe-area-inset-bottom)!important;
-  /* Remove the margin-bottom property */
-}
 
-/* Add a new property to handle the safe area on iOS devices */
-.bottom-nav-bar {
-  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .bottom-nav-bar > * {
@@ -35,16 +29,3 @@
   fill: #888;
 }
 
-.bottom-nav-bar:active.icon,
-.bottom-nav-bar:active.text {
-  color: #000;
-}
-
-.bottom-nav-bar:active.icon {
-  fill: #fff;
-}
-
-.bottom-nav-bar *:active,.bottom-nav-bar *:focus {
-  outline: none;
-  box-shadow: none;
-}

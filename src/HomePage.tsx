@@ -123,11 +123,6 @@ const NewComponent = styled.div`
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-  /* media query for mobile devices */
-  @media (max-width: 768px) {
-    height: 40vh; /* set height to auto for mobile devices */
-    max-height: 70vh; /* set max-height to 70vh for mobile devices */
-  }
 `;
 const BuyButton = styled.button`
   width: 70vw;
