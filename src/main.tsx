@@ -13,8 +13,6 @@ const queryClient = new QueryClient({
   defaultOptions: { queries: { refetchOnWindowFocus: false } },
 });
 
-let tg = (window as any).Telegram.WebApp;
-tg.expand();
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   
