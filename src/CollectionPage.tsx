@@ -104,7 +104,7 @@ function CollectionPage() {
 
   useEffect(() => {
     loadCollectionData();
-  }, [loadCollectionData]);
+  }, []); 
 
   return (
     <StyledApp>
