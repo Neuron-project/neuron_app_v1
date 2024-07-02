@@ -20,11 +20,12 @@ const StyledApp = styled.div`
 
 const AppContainer = styled.div`
   max-width: 900px;
-  margin: 0 auto; /* Center the content */
+  margin: 0 auto;
   display: flex;
-  flex-direction: column; /* Arrange items vertically */
+  flex-direction: column;
   gap: 10px;
   padding: 0 10px;
+  overflow-anchor: none; /* Add this */
 `;
 
 const CollectionGridContainer = styled.div`
@@ -32,6 +33,7 @@ const CollectionGridContainer = styled.div`
   -webkit-scrollbar: none; /* Add this to hide the scrollbar in WebKit browsers */
   -moz-scrollbar: none; /* Add this to hide the scrollbar in Mozilla browsers */
   scrollbar-width: none; /* Add this to hide the scrollbar in modern browsers */
+  -webkit-overflow-scrolling: touch; /* Add this */
   height: 70vh; /* Keep the fixed height */
   padding: 10px;
 `;
@@ -108,7 +110,10 @@ function CollectionPage() {
   }, []);
 
   return (
-    <StyledApp>
+    <StyledApp
+    onTouchStart={(e) => e.preventDefault()} /* Add this */
+    onTouchMove={(e) => e.preventDefault()} /* Add this */
+    >
       <FlexBoxRow
         style={{
           justifyContent: "flex-start",
