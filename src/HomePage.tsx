@@ -112,7 +112,7 @@ const FlexBoxCol = styled.div`
   height: 100vh; /* Установите высоту родительского элемента */
 `;
 const NewComponent = styled.div`
-  height: 45vh;
+  height: 45vh; /* initial height */
   width: 82vw;
   display: flex;
   flex-direction: column;
@@ -122,6 +122,12 @@ const NewComponent = styled.div`
   padding: 16px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  /* media query for mobile devices */
+  @media (max-width: 768px) {
+    height: 40vh; /* set height to auto for mobile devices */
+    max-height: 70vh; /* set max-height to 70vh for mobile devices */
+  }
 `;
 const BuyButton = styled.button`
   width: 70vw;
@@ -321,21 +327,21 @@ useEffect(() => {
 </FlexBoxCol>
 <BuyButton
   style={{
-    marginTop: 'auto',
+    marginTop: 16, // adjust the margin top to 16px
     width: '100%',
-    zIndex: 1, // try to bring the button to the front
-    fontSize: 24, // increase font size
-    fontWeight: 700, // make font bold
-    letterSpacing: 2, // add some letter spacing
-    textTransform: 'uppercase', // make text uppercase
-    color: '#fff', // change text color to white
-    backgroundColor: '#000', // change background color to black
-    borderRadius: 10, // add some border radius
-    padding: '12px 24px', // add some padding
-    cursor: 'pointer', // change cursor to pointer
-    transition: 'background 0.3s ease-in-out', // add some transition effect
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)', // add some box shadow
-    WebkitTapHighlightColor: 'transparent', // remove blue highlight on tap (for mobile)
+    zIndex: 1, 
+    fontSize: 24, 
+    fontWeight: 700, 
+    letterSpacing: 2, 
+    textTransform: 'uppercase', 
+    color: '#fff', 
+    backgroundColor: '#000', 
+    borderRadius: 10, 
+    padding: '1.5vh 24px', 
+    cursor: 'pointer', 
+    transition: 'background 0.3s ease-in-out', 
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)', 
+    WebkitTapHighlightColor: 'transparent', 
   }}
   onClick={() => tonConnectUI.sendTransaction(myTransaction)}
 >
