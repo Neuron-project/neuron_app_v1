@@ -33,7 +33,7 @@ const CollectionGridContainer = styled.div`
   -moz-scrollbar: none; /* Add this to hide the scrollbar in Mozilla browsers */
   scrollbar-width: none; /* Add this to hide the scrollbar in modern browsers */
   height: 80vh; /* Keep the fixed height */
-  padding: 10px;
+  padding: 0px;
   overflow-y: auto; /* Enable scrolling within the container */
   -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on mobile devices */
 `;
@@ -148,7 +148,7 @@ function CollectionPage() {
         <TonConnectButton style={{ marginLeft: "auto" }} /> {/* Используем стилизованную кнопку TonConnect */}
       </FlexBoxRow>
       {showCollection && (
-        <AppContainer style={{ marginTop: 60, width: "85vw" }}>
+        <AppContainer style={{ marginTop: 40, width: "85vw" }}>
           <CollectionGridContainer>
             <CollectionGrid>
               {collectionData.map((item) => (
