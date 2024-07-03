@@ -209,31 +209,31 @@ function HomePage() {
     minutes: 0,
     seconds: 0,
   });
-  
+
   const targetDate = new Date('2024-07-15T10:00:00.000Z');
-const now = new Date();
+  const now = new Date();
 
-useEffect(() => {
-  const timeDiff = targetDate.getTime() - now.getTime();
-  const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-
-  setCountdown({ days, hours, minutes, seconds });
-
-  const intervalId = setInterval(() => {
-    now.setTime(now.getTime() + 1000);
+  useEffect(() => {
     const timeDiff = targetDate.getTime() - now.getTime();
     const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-    setCountdown({ days, hours, minutes, seconds });
-  }, 1000);
 
-  return () => clearInterval(intervalId);
-}, []); // <--- empty dependency array
+    setCountdown({ days, hours, minutes, seconds });
+
+    const intervalId = setInterval(() => {
+      now.setTime(now.getTime() + 1000);
+      const timeDiff = targetDate.getTime() - now.getTime();
+      const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+      setCountdown({ days, hours, minutes, seconds });
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, []); // <--- empty dependency array
   const [tonConnectUI, setOptions] = useTonConnectUI();
   const myTransaction = {
     validUntil: Math.floor(Date.now() / 1000) + 360,
@@ -245,23 +245,32 @@ useEffect(() => {
     ]
   }
   useEffect(() => {
-    document.documentElement.addEventListener('touchstart', function(event) {
+    document.documentElement.addEventListener('touchstart', function (event) {
       if (event.touches.length > 1) {
         event.preventDefault();
       }
     });
   }, []);
 
+
+  const [isRegistered, setIsRegistered] = useState(false);
+
   const [transactionSent, setTransactionSent] = useState(false);
 
-const handleTransactionSend = () => {
-  tonConnectUI.sendTransaction(myTransaction);
-  setTransactionSent(true);
-};
+  useEffect(() => {
+    const storedRegistrationState = localStorage.getItem('isRegistered');
+    if (storedRegistrationState === 'true') {
+      setTransactionSent(true);
+    }
+  }, []);
 
-
+  const handleTransactionSend = async () => {
+    tonConnectUI.sendTransaction(myTransaction);
+    setTransactionSent(true);
+    localStorage.setItem('isRegistered', 'true');
+  };
   return (
-    
+
     <StyledApp>
       <FlexBoxRow style={{
         justifyContent: 'flex-start',
@@ -314,47 +323,43 @@ const handleTransactionSend = () => {
                 </FlexBoxRow>
               </FlexBoxRow>
               <FlexBoxCol style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 24 }}>
-  <span style={{ fontSize: 24, fontWeight: 700, color: '#333', marginBottom: 8 }}>
-    The sale will starts in
-  </span>
-  <TimerContainer style={{ marginTop: -16 }}>
-    <CountdownTimer>
-    {countdown.days.toString().padStart(2, '0')}: 
-  {countdown.hours.toString().padStart(2, '0')}: 
-  {countdown.minutes.toString().padStart(2, '0')}: 
-  {countdown.seconds.toString().padStart(2, '0')}
-    </CountdownTimer>
-  </TimerContainer>
-</FlexBoxCol>
-<BuyButton
-  style={{
-    marginTop: 16,
-    width: '100%',
-    zIndex: 1,
-    fontSize: 21,
-    fontWeight: 700,
-    letterSpacing: 2,
-    textTransform: 'uppercase',
-    color: '#fff',
-    backgroundColor: wallet ? '#000' : '#ccc', // disable button if wallet is not connected
-    borderRadius: 10,
-    padding: '1.5vh 24px',
-    cursor: transactionSent ? 'not-allowed' : (wallet ? 'pointer' : 'not-allowed'), // disable cursor if transaction has been sent or wallet is not connected
-    transition: transactionSent ? 'none' : 'background 0.3s ease-in-out', // disable animation when button is disabled
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
-    WebkitTapHighlightColor: 'transparent',
-    opacity: transactionSent ? 0.5 : 1, // make button semi-transparent when transaction is sent
-    pointerEvents: transactionSent ? 'none' : 'auto', // disable pointer events when button is disabled
-  }}
-  onClick={(e) => {
-    if (transactionSent) {
-      return; // do nothing if transaction is sent
-    }
-    handleTransactionSend();
-  }}
->
-  {wallet && !transactionSent ? 'Whitelist' : wallet ? 'You are registered' : 'Connect wallet'}
-</BuyButton>
+                <span style={{ fontSize: 24, fontWeight: 700, color: '#333', marginBottom: 8 }}>
+                  The sale will starts in
+                </span>
+                <TimerContainer style={{ marginTop: -16 }}>
+                  <CountdownTimer>
+                    {countdown.days.toString().padStart(2, '0')}:
+                    {countdown.hours.toString().padStart(2, '0')}:
+                    {countdown.minutes.toString().padStart(2, '0')}:
+                    {countdown.seconds.toString().padStart(2, '0')}
+                  </CountdownTimer>
+                </TimerContainer>
+              </FlexBoxCol>
+              <BuyButton
+                onClick={handleTransactionSend}
+                disabled={transactionSent || !wallet}
+                style={{
+                  marginTop: 16,
+                  width: '100%',
+                  zIndex: 1,
+                  fontSize: 21,
+                  fontWeight: 700,
+                  letterSpacing: 2,
+                  textTransform: 'uppercase',
+                  color: '#fff',
+                  backgroundColor: wallet ? '#000' : '#ccc', // disable button if wallet is not connected
+                  borderRadius: 10,
+                  padding: '1.5vh 24px',
+                  cursor: transactionSent ? 'not-allowed' : (wallet ? 'pointer' : 'not-allowed'), // disable cursor if transaction has been sent or wallet is not connected
+                  transition: transactionSent ? 'none' : 'background 0.3s ease-in-out', // disable animation when button is disabled
+                  boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
+                  WebkitTapHighlightColor: 'transparent',
+                  opacity: transactionSent ? 0.5 : 1, // make button semi-transparent when transaction is sent
+                  pointerEvents: transactionSent ? 'none' : 'auto', // disable pointer events when button is disabled
+                }}
+              >
+                {wallet && !transactionSent ? 'Whitelist' : wallet ? isRegistered ? 'You are registered' : 'You are registered' : 'Connect wallet'}
+              </BuyButton>
             </NewComponent>
           </FlexBoxCol>
           <FlexBoxCol style={{ flex: 1, width: '50%' }}>
