@@ -6,11 +6,32 @@
     <link rel="icon" type="image/svg+xml" href="/neuron_app_v1/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
+    <style>
+      body {
+        height: 1000vh !important;
+        position: static !important;
+        overscroll-behavior: none;
+      }
+  
+      flutter-view {
+        position: fixed !important;
+        max-width: 100vw !important;
+        max-height: 100vh !important;
+      }
+  
+      /* Safari-specific CSS */
+      @supports (-webkit-touch-callout: inherit) {
+        body {
+          height: 1000vh !important;
+        }
+      }
+    </style>
     <script type="module" crossorigin src="/neuron_app_v1/assets/index-abb47664.js"></script>
     <link rel="stylesheet" href="/neuron_app_v1/assets/index-3800ce18.css">
   </head>
   <body>
     <div id="root"></div>
     
+    <script>window.scroll(0, window.document.body.scrollHeight);</script>
   </body>
 </html>
