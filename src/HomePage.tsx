@@ -322,27 +322,28 @@ useEffect(() => {
   </TimerContainer>
 </FlexBoxCol>
 <BuyButton
-  style={{
-    marginTop: 16, // adjust the margin top to 16px
-    width: '100%',
-    zIndex: 1, 
-    fontSize: 24, 
-    fontWeight: 700, 
-    letterSpacing: 2, 
-    textTransform: 'uppercase', 
-    color: '#fff', 
-    backgroundColor: '#000', 
-    borderRadius: 10, 
-    padding: '1.5vh 24px', 
-    cursor: 'pointer', 
-    transition: 'background 0.3s ease-in-out', 
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)', 
-    WebkitTapHighlightColor: 'transparent', 
-  }}
-  onClick={() => tonConnectUI.sendTransaction(myTransaction)}
->
-  Whitelist
-</BuyButton>
+        style={{
+          marginTop: 16,
+          width: '100%',
+          zIndex: 1,
+          fontSize: 21,
+          fontWeight: 700,
+          letterSpacing: 2,
+          textTransform: 'uppercase',
+          color: '#fff',
+          backgroundColor: wallet ? '#000' : '#ccc', // disable button if wallet is not connected
+          borderRadius: 10,
+          padding: '1.5vh 24px',
+          cursor: wallet ? 'pointer' : 'not-allowed', // disable cursor if wallet is not connected
+          transition: 'background 0.3s ease-in-out',
+          boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
+          WebkitTapHighlightColor: 'transparent',
+        }}
+        onClick={() => wallet && tonConnectUI.sendTransaction(myTransaction)} // only send transaction if wallet is connected
+        disabled={!wallet} // disable button if wallet is not connected
+      >
+        {wallet ? 'Whitelist' : 'Connect wallet '}
+      </BuyButton>
             </NewComponent>
           </FlexBoxCol>
           <FlexBoxCol style={{ flex: 1, width: '50%' }}>
