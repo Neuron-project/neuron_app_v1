@@ -3,7 +3,9 @@
   "homepage": ".",
   "version": "0.0.0",
   "type": "module",
-  "permissions": ["fullscreen"],
+  "permissions": [
+    "fullscreen"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -23,6 +25,7 @@
     "react-lazy-load": "^4.0.1",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.23.1",
+    "react-transition-group": "^4.4.5",
     "react-window": "^1.8.10",
     "styled-components": "^5.3.6",
     "ton": "^13.3.0",
@@ -37,6 +40,7 @@
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
+    "@types/react-transition-group": "^4.4.10",
     "@types/react-window": "^1.8.8",
     "@types/styled-components": "^5.1.26",
     "@types/webpack": "^5.28.5",

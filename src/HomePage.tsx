@@ -11,10 +11,6 @@ import BottomNavBar from './BottomNavBar'
 import TonIcon from "./components/styled/ton.png";
 import AppIcon from "./components/styled/AppIcon.png";
 
-
-
-
-
 const StyledApp = styled.div`
   position: fixed;
   top: 0;
@@ -256,6 +252,14 @@ useEffect(() => {
     });
   }, []);
 
+  const [transactionSent, setTransactionSent] = useState(false);
+
+const handleTransactionSend = () => {
+  tonConnectUI.sendTransaction(myTransaction);
+  setTransactionSent(true);
+};
+
+
   return (
     <StyledApp>
       <FlexBoxRow style={{
@@ -322,28 +326,34 @@ useEffect(() => {
   </TimerContainer>
 </FlexBoxCol>
 <BuyButton
-        style={{
-          marginTop: 16,
-          width: '100%',
-          zIndex: 1,
-          fontSize: 21,
-          fontWeight: 700,
-          letterSpacing: 2,
-          textTransform: 'uppercase',
-          color: '#fff',
-          backgroundColor: wallet ? '#000' : '#ccc', // disable button if wallet is not connected
-          borderRadius: 10,
-          padding: '1.5vh 24px',
-          cursor: wallet ? 'pointer' : 'not-allowed', // disable cursor if wallet is not connected
-          transition: 'background 0.3s ease-in-out',
-          boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
-          WebkitTapHighlightColor: 'transparent',
-        }}
-        onClick={() => wallet && tonConnectUI.sendTransaction(myTransaction)} // only send transaction if wallet is connected
-        disabled={!wallet} // disable button if wallet is not connected
-      >
-        {wallet ? 'Whitelist' : 'Connect wallet '}
-      </BuyButton>
+  style={{
+    marginTop: 16,
+    width: '100%',
+    zIndex: 1,
+    fontSize: 21,
+    fontWeight: 700,
+    letterSpacing: 2,
+    textTransform: 'uppercase',
+    color: '#fff',
+    backgroundColor: wallet ? '#000' : '#ccc', // disable button if wallet is not connected
+    borderRadius: 10,
+    padding: '1.5vh 24px',
+    cursor: transactionSent ? 'not-allowed' : (wallet ? 'pointer' : 'not-allowed'), // disable cursor if transaction has been sent or wallet is not connected
+    transition: transactionSent ? 'none' : 'background 0.3s ease-in-out', // disable animation when button is disabled
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
+    WebkitTapHighlightColor: 'transparent',
+    opacity: transactionSent ? 0.5 : 1, // make button semi-transparent when transaction is sent
+    pointerEvents: transactionSent ? 'none' : 'auto', // disable pointer events when button is disabled
+  }}
+  onClick={(e) => {
+    if (transactionSent) {
+      return; // do nothing if transaction is sent
+    }
+    handleTransactionSend();
+  }}
+>
+  {wallet && !transactionSent ? 'Whitelist' : wallet ? 'You are registered' : 'Connect wallet'}
+</BuyButton>
             </NewComponent>
           </FlexBoxCol>
           <FlexBoxCol style={{ flex: 1, width: '50%' }}>
