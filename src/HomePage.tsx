@@ -30,6 +30,7 @@ const AppContainer = styled.div`
   margin: 0 ;
   display: flex;
   justify-content: space-between;
+  margin-bottom: calc(50px + env(safe-area-inset-bottom));
 `;
 const QuantityComponent = styled.div`
   width: 34vw;
