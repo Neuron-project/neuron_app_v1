@@ -16,8 +16,8 @@ const StyledApp = styled.div`
   padding: 20px 20px;
   overflow: hidden;
   background-color: #fff;
+  overflow-y: auto; /* Add this to enable scrolling within the app */
 `;
-
 const AppContainer = styled.div`
   max-width: 900px;
   margin: 0 auto; /* Center the content */
@@ -34,6 +34,8 @@ const CollectionGridContainer = styled.div`
   scrollbar-width: none; /* Add this to hide the scrollbar in modern browsers */
   height: 80vh; /* Keep the fixed height */
   padding: 10px;
+  overflow-y: auto; /* Enable scrolling within the container */
+  -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on mobile devices */
 `;
 
 const CollectionGrid = styled.div`

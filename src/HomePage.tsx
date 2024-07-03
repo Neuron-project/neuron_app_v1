@@ -1,5 +1,5 @@
 import "./App.css";
-import { TonConnectButton, useTonConnectUI } from "@tonconnect/ui-react";
+import { TonConnectButton, useTonConnectUI, TonConnectUIProvider } from "@tonconnect/ui-react";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useTonWallet } from '@tonconnect/ui-react';
@@ -261,6 +261,7 @@ const handleTransactionSend = () => {
 
 
   return (
+    
     <StyledApp>
       <FlexBoxRow style={{
         justifyContent: 'flex-start',
