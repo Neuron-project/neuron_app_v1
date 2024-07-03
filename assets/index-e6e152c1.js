@@ -1220,6 +1220,7 @@ Values:
   margin: 0 ;
   display: flex;
   justify-content: space-between;
+  margin-bottom: calc(50px + env(safe-area-inset-bottom));
 `,Rpe=fr.div`
   width: 34vw;
   display: flex;
