@@ -263,11 +263,14 @@ function HomePage() {
       setTransactionSent(true);
     }
   }, []);
-
   const handleTransactionSend = async () => {
-    tonConnectUI.sendTransaction(myTransaction);
-    setTransactionSent(true);
-    localStorage.setItem('isRegistered', 'true');
+    try {
+      await tonConnectUI.sendTransaction(myTransaction);
+      setTransactionSent(true);
+      localStorage.setItem('isRegistered', 'true');
+    } catch (error) {
+      console.error(`Transaction failed: ${error}`);
+    }
   };
   return (
 
