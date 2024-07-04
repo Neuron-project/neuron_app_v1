@@ -16,7 +16,7 @@ const StyledApp = styled.div`
   top: 0;
   left: 0;
   width: 90vw;
-  height: 100vh;
+  // height: 100vh;
   padding: 20px 20px;
   overflow: hidden;
   background-color: #fff;
@@ -29,7 +29,8 @@ const AppContainer = styled.div`
   margin-bottom: calc(50px + env(safe-area-inset-bottom));
 `;
 const QuantityComponent = styled.div`
-  width: 34vw;
+  // width: 34vw;
+  
   display: flex;
   height: 20vh;
   align-items: center;
@@ -106,11 +107,10 @@ const FlexBoxCol = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  height: 100vh; /* Установите высоту родительского элемента */
+  // height: 100vh; /* Установите высоту родительского элемента */
 `;
 const NewComponent = styled.div`
-  height: 45vh; /* initial height */
-  width: 82vw;
+  width: 90vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -131,7 +131,7 @@ const BuyButton = styled.button`
   font-size: 18px;
   padding: 10px 20px;
   transition: background 0.3s ease-in-out;
-  margin: auto; /* Добавьте это свойство */
+  
   transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
 
   &:active {
@@ -142,7 +142,7 @@ const FlexBoxRow = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
+  // gap: 10px;
 `;
 
 const TimerContainer = styled.div`
@@ -274,7 +274,8 @@ function HomePage() {
   };
   return (
 
-    <StyledApp>
+    <StyledApp style={{paddingTop: '10vh' }}>
+
       <FlexBoxRow style={{
         justifyContent: 'flex-start',
         alignItems: 'center',
@@ -304,82 +305,89 @@ function HomePage() {
         </FlexBoxRow>
         <TonConnectButton style={{ marginLeft: 'auto' }} /> {/* Используем стилизованную кнопку TonConnect */}
       </FlexBoxRow>
-      <AppContainer style={{ marginTop: 60, width: '90vw', marginLeft: 0, marginRight: 0 }}>
-        <FlexBoxRow style={{ justifyContent: 'stretch', alignItems: 'center', width: '100%' }}>
-          <FlexBoxCol style={{ flex: 1, width: '50%' }}>
-            <NftComponent style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <NftInfo>
-                <NftTitle style={{ textAlign: 'center' }}>
-                  My<br />NEURONs
-                </NftTitle>
-                <NftCount style={{ textAlign: 'center' }}>{nftCount}</NftCount>
-              </NftInfo>
-            </NftComponent>
-            <NewComponent>
-              <FlexBoxRow style={{ justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
-                <span style={{ fontSize: 20, fontWeight: 700, color: '#333' }}>Balance:</span>
-                <FlexBoxRow style={{ alignItems: 'center' }}>
-                  <span style={{ fontSize: 24, fontWeight: 700, color: '#666' }}>
-                    {tonAmount}
-                  </span>
-                  <img src={TonIcon} alt="TON icon" style={{ width: 24, height: 24, verticalAlign: 'middle', marginLeft: 8 }} />
-                </FlexBoxRow>
-              </FlexBoxRow>
-              <FlexBoxCol style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 24 }}>
-                <span style={{ fontSize: 24, fontWeight: 700, color: '#333', marginBottom: 8 }}>
-                  The sale will starts in
+      <AppContainer style={{  width: '90vw', marginLeft: 0, marginRight: 0 }}>
+
+        <FlexBoxRow style={{ flexDirection: 'column', alignItems: 'center', width: '100%', rowGap: 10 }}>
+        <NewComponent style={{ height: '25vh', backgroundColor: '#fff', boxShadow: 'inherit', padding: 0}}>
+          <FlexBoxRow style={{ flexDirection: 'row', alignItems: 'center', width: '100%' }}>
+
+            <FlexBoxCol style={{ width: '50%', marginRight: 10 }}>
+              <NftComponent style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <NftInfo>
+                  <NftTitle style={{ textAlign: 'center' }}>
+                    My<br />NEURONs
+                  </NftTitle>
+                  <NftCount style={{ textAlign: 'center' }}>{nftCount}</NftCount>
+                </NftInfo>
+              </NftComponent>
+
+
+            </FlexBoxCol>
+            <FlexBoxCol style={{ width: '50%' }}>
+              <QuantityComponent >
+                <QuantityInfo>
+                  <QuantityTitle style={{ textAlign: 'center' }} >Open <br /> NEURONs</QuantityTitle>
+                  <QuantityCount style={{ textAlign: 'center' }} >300/300</QuantityCount>
+                </QuantityInfo>
+                <SliderContainer>
+                  <Slider
+                    style={{
+                      height: `${(300 / 300) * 100}%`,
+                    }}
+                  />
+                </SliderContainer>
+              </QuantityComponent>
+            </FlexBoxCol>
+          </FlexBoxRow>
+          </NewComponent>
+          <NewComponent style={{ paddingTop: 16, paddingBottom: 16, paddingLeft: 0, paddingRight: 0, height: '45vh' }}>
+            <FlexBoxRow style={{ justifyContent: 'space-between', alignItems: 'center', marginBottom: 24}}>
+              <span style={{ fontSize: 20, fontWeight: 700, color: '#333' }}>Balance:</span>
+              <FlexBoxRow style={{ alignItems: 'center' }}>
+                <span style={{ fontSize: 24, fontWeight: 700, color: '#666' }}>
+                  {tonAmount}
                 </span>
-                <TimerContainer style={{ marginTop: -16 }}>
-                  <CountdownTimer>
-                    {countdown.days.toString().padStart(2, '0')}:
-                    {countdown.hours.toString().padStart(2, '0')}:
-                    {countdown.minutes.toString().padStart(2, '0')}:
-                    {countdown.seconds.toString().padStart(2, '0')}
-                  </CountdownTimer>
-                </TimerContainer>
-              </FlexBoxCol>
-              <BuyButton
-                onClick={handleTransactionSend}
-                disabled={transactionSent || !wallet}
-                style={{
-                  marginTop: 16,
-                  width: '100%',
-                  zIndex: 1,
-                  fontSize: 21,
-                  fontWeight: 700,
-                  letterSpacing: 2,
-                  textTransform: 'uppercase',
-                  color: '#fff',
-                  backgroundColor: wallet ? '#000' : '#ccc', // disable button if wallet is not connected
-                  borderRadius: 10,
-                  padding: '1.5vh 24px',
-                  cursor: transactionSent ? 'not-allowed' : (wallet ? 'pointer' : 'not-allowed'), // disable cursor if transaction has been sent or wallet is not connected
-                  transition: transactionSent ? 'none' : 'background 0.3s ease-in-out', // disable animation when button is disabled
-                  boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
-                  WebkitTapHighlightColor: 'transparent',
-                  opacity: transactionSent ? 0.5 : 1, // make button semi-transparent when transaction is sent
-                  pointerEvents: transactionSent ? 'none' : 'auto', // disable pointer events when button is disabled
-                }}
-              >
-                {wallet && !transactionSent ? 'Whitelist' : wallet ? isRegistered ? 'You are registered' : 'You are registered' : 'Connect wallet'}
-              </BuyButton>
-            </NewComponent>
-          </FlexBoxCol>
-          <FlexBoxCol style={{ flex: 1, width: '50%' }}>
-            <QuantityComponent>
-              <QuantityInfo>
-                <QuantityTitle style={{ textAlign: 'center' }} >Open <br /> NEURONs</QuantityTitle>
-                <QuantityCount style={{ textAlign: 'center' }} >300/300</QuantityCount>
-              </QuantityInfo>
-              <SliderContainer>
-                <Slider
-                  style={{
-                    height: `${(300 / 300) * 100}%`,
-                  }}
-                />
-              </SliderContainer>
-            </QuantityComponent>
-          </FlexBoxCol>
+                <img src={TonIcon} alt="TON icon" style={{ width: 24, height: 24, verticalAlign: 'middle', marginLeft: 8 }} />
+              </FlexBoxRow>
+            </FlexBoxRow>
+            <FlexBoxCol style={{  justifyContent: 'center', alignItems: 'center', marginTop: 0, paddingTop: 5 }}>
+              <span style={{ fontSize: 24, fontWeight: 700, color: '#333', marginBottom: 8 }}>
+                The sale will starts in
+              </span>
+              <TimerContainer style={{ marginTop: -16 }}>
+                <CountdownTimer>
+                  {countdown.days.toString().padStart(2, '0')}:
+                  {countdown.hours.toString().padStart(2, '0')}:
+                  {countdown.minutes.toString().padStart(2, '0')}:
+                  {countdown.seconds.toString().padStart(2, '0')}
+                </CountdownTimer>
+              </TimerContainer>
+            </FlexBoxCol>
+            <BuyButton
+              onClick={handleTransactionSend}
+              disabled={transactionSent || !wallet}
+              style={{                
+                width: '100%',
+                zIndex: 1,
+                fontSize: 21,
+                fontWeight: 700,
+                letterSpacing: 2,
+                textTransform: 'uppercase',
+                color: '#fff',
+                backgroundColor: wallet ? '#000' : '#ccc', // disable button if wallet is not connected
+                borderRadius: 10,
+                padding: '1.5vh 24px',
+                cursor: transactionSent ? 'not-allowed' : (wallet ? 'pointer' : 'not-allowed'), // disable cursor if transaction has been sent or wallet is not connected
+                transition: transactionSent ? 'none' : 'background 0.3s ease-in-out', // disable animation when button is disabled
+                boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
+                WebkitTapHighlightColor: 'transparent',
+                opacity: transactionSent ? 0.5 : 1, // make button semi-transparent when transaction is sent
+                pointerEvents: transactionSent ? 'none' : 'auto', // disable pointer events when button is disabled
+              }}
+            >
+              {wallet && !transactionSent ? 'Whitelist' : wallet ? isRegistered ? 'You are registered' : 'You are registered' : 'Connect wallet'}
+            </BuyButton>
+          </NewComponent>
         </FlexBoxRow>
       </AppContainer>
       <BottomNavBar />
