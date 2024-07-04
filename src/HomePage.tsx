@@ -210,7 +210,7 @@ function HomePage() {
     seconds: 0,
   });
 
-  const targetDate = new Date('2024-07-15T10:00:00.000Z');
+  const targetDate = new Date('2024-07-15T13:00:00.000Z');
   const now = new Date();
 
   useEffect(() => {
