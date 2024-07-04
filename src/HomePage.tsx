@@ -385,7 +385,7 @@ function HomePage() {
                 pointerEvents: transactionSent ? 'none' : 'auto', // disable pointer events when button is disabled
               }}
             >
-              {wallet && !transactionSent ? 'Whitelist' : wallet ? isRegistered ? 'You are registered' : 'You are registered' : 'Connect wallet'}
+              {wallet && !transactionSent ? 'Whitelist' : wallet ? isRegistered ? 'You are registered' : 'You are registered' : 'Whitelist'}
             </BuyButton>
           </NewComponent>
         </FlexBoxRow>
