@@ -36,15 +36,15 @@ const CollectionGridContainer = styled.div`
   padding: 0px;
   overflow-y: auto; /* Enable scrolling within the container */
   -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on mobile devices */
-`;
-
-const CollectionGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
 `;
 
+
+
 const CollectionItem = styled.div`
+  width:75px;
   background-color: #f7f7f7;
   border-radius: 10px;
   padding: 0px;
@@ -52,14 +52,14 @@ const CollectionItem = styled.div`
 `;
 
 const ImageContainer = styled.div`
-  width: 101%;
-  height: 75px; /* Reduced image height */
+  width:75px;
+  height: 75px; 
   overflow: hidden; /* Hide overflow to create a clean cut */
   border-radius: 8px;
 `;
 
 const CollectionImage = styled.img`
-  width: 100%;
+  width: 99%;
   height: 100%;
   object-fit: cover; /* Scale image to fit container */
 `;
@@ -125,7 +125,7 @@ function CollectionPage() {
           borderBottomRightRadius: 10,
         }}
       >
-        <FlexBoxRow style={{ justifyContent: "flex-start" }}>
+        <FlexBoxRow style={{}}>
           <img
             src={AppIcon}
             alt="Neuron Icon"
@@ -148,9 +148,9 @@ function CollectionPage() {
         <TonConnectButton style={{ marginLeft: "auto" }} /> {/* Используем стилизованную кнопку TonConnect */}
       </FlexBoxRow>
       {showCollection && (
-        <AppContainer style={{ marginTop: 40, width: "85vw" }}>
+        <AppContainer style={{ paddingTop: '5vh', width: "85vw" }}>
           <CollectionGridContainer>
-            <CollectionGrid>
+            
               {collectionData.map((item) => (
                 <CollectionItem key={item.id}>
                   <ImageContainer>
@@ -163,7 +163,7 @@ function CollectionPage() {
                   </CollectionText>
                 </CollectionItem>
               ))}
-            </CollectionGrid>
+            
           </CollectionGridContainer>
         </AppContainer>
       )}
