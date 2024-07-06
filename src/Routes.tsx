@@ -1,13 +1,23 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Outlet } from 'react-router-dom';
 import CollectionPage from './CollectionPage';
 import HomePage from './HomePage';
 import App from './App';
 
+const AppFallback = () => {
+  return <App />;
+};
+
 const router = createBrowserRouter([
-  { path: '/', element: <HomePage /> },
-  { path: '/collection/', element: <CollectionPage /> }, // Add trailing slash to path
-], {
-  basename: '/', // Set basename to root URL
-});
+  {
+    path: '/',
+    element: <HomePage />,
+    errorElement: <AppFallback />, // Add errorElement property
+  },
+  {
+    path: '/collection',
+    element: <CollectionPage />,
+    errorElement: <AppFallback />, // Add errorElement property
+  },
+]);
 
 export default router;
