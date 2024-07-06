@@ -4,9 +4,10 @@ import HomePage from './HomePage';
 import App from './App';
 
 const router = createBrowserRouter([
-  { path: `/`, element: <HomePage /> },
-  { path: `/collection`, element: <CollectionPage /> },
-  { path: '/*', element: <App /> }, // Add this catch-all route
-]);
+  { path: '/', element: <HomePage /> },
+  { path: '/collection/', element: <CollectionPage /> }, // Add trailing slash to path
+], {
+  basename: '/', // Set basename to root URL
+});
 
 export default router;
