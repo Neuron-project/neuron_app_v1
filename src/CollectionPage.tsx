@@ -54,14 +54,11 @@ const CollectionGridContainer = styled.div`
 
 
 const CollectionItem = styled.div`
-  width: 75px;
-  background-color: rgba(255, 255, 255, 0.1); /* Очень прозрачный белый цвет */
+  width:75px;
+ background-color: rgba(247, 247, 247, 0.4); /* Полупрозрачный светло-серый цвет */
   border-radius: 10px;
   padding: 0px;
   text-align: center;
-  backdrop-filter: blur(20px) saturate(180%); /* Эффект размытия и насыщенности */
-
-
 `;
 
 const ImageContainer = styled.div`

@@ -7,12 +7,11 @@
   justify-content: space-around;
   align-items: center;
   padding: 10px;
-  background-color: rgba(255, 255, 255, 0.1); /* Очень прозрачный белый цвет */
-  backdrop-filter: blur(20px) saturate(180%); /* Увеличенный эффект размытия и насыщенности */
+  background-color: rgba(255, 255, 255, 0.05); /* Прозрачный белый цвет */
+  backdrop-filter: blur(15px) saturate(150%); /* Уменьшенный эффект размытия и насыщенности */
   height: 50px;
   z-index: 1;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Более выразительная тень */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Полупрозрачная белая граница */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Умеренная тень */
 }
 
 .bottom-nav-bar > * {
