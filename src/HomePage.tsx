@@ -16,10 +16,16 @@ const StyledApp = styled.div`
   top: 0;
   left: 0;
   width: 90vw;
-  // height: 100vh;
-  padding: 20px 20px;
-  overflow: hidden;
-  background-color: #fff;
+  height: 100vh;
+  padding: 20px;
+   background: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.3), /* Темный черный с прозрачностью 0.3 */
+    rgba(0, 0, 0, 0.15) 30%, /* Черный с прозрачностью 0.15 на 30% */
+    rgba(50, 50, 50, 0.25) 50%, /* Серый с прозрачностью 0.25 на 50% */
+    rgba(0, 0, 0, 0.15) 70%, /* Черный с прозрачностью 0.15 на 70% */
+    rgba(0, 0, 0, 0.3) /* Темный черный с прозрачностью 0.3 */
+  ); /* Улучшенный узорный темный градиент */
 `;
 const AppContainer = styled.div`
   max-width: 900px;
@@ -29,15 +35,13 @@ const AppContainer = styled.div`
   margin-bottom: calc(50px + env(safe-area-inset-bottom));
 `;
 const QuantityComponent = styled.div`
-  // width: 34vw;
-  
   display: flex;
   height: 20vh;
   align-items: center;
   padding: 16px;
   border-radius: 8px;
-  background-color: #f2f2f2;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: rgba(242, 242, 242, 0.6); /* Более прозрачный белый цвет */
+  backdrop-filter: blur(40px); /* Эффект размытия */
 `;
 const QuantityInfo = styled.div`
   display: flex;
@@ -80,8 +84,8 @@ const NftComponent = styled.div`
   align-items: center;
   padding: 16px;
   border-radius: 8px;
-  background-color: #f2f2f2;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: rgba(242, 242, 242, 0.6); /* Более прозрачный белый цвет */
+  backdrop-filter: blur(40px); /* Эффект размытия */
 `;
 const NftIcon = styled.img`
   width: 32px;
@@ -115,14 +119,13 @@ const NewComponent = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: #f2f2f2;
+  background-color: rgba(242, 242, 242, 0.6); /* Более прозрачный белый цвет */
   padding: 16px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
+  backdrop-filter: blur(40px); /* Эффект размытия */
 `;
 const BuyButton = styled.button`
-  width: 70vw;
+  width: 70%;
   background: #000;
   border: none;
   border-radius: 10px;
@@ -149,7 +152,7 @@ const TimerContainer = styled.div`
   padding: 16px;
   border: 2px solid #888;
   border-radius: 8px;
-  background-color: #f9f9f9;
+  background-color: rgba(242, 242, 242, 0.2); /* Более прозрачный белый цвет */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -244,6 +247,14 @@ function HomePage() {
       }
     ]
   }
+  useEffect(() => {
+    document.documentElement.addEventListener('touchstart', function (event) {
+      if (event.touches.length > 1) {
+        event.preventDefault();
+      }
+    });
+  }, []);
+
 
   const [isRegistered, setIsRegistered] = useState(false);
 
@@ -269,17 +280,19 @@ function HomePage() {
     <StyledApp style={{paddingTop: '10vh' }}>
 
       <FlexBoxRow style={{
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        padding: '8px 16px',
-        backgroundColor: '#f7f7f7',
-        height: 40,
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        borderBottomLeftRadius: 10,
-        borderBottomRightRadius: 10
+display: 'flex',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    padding: '8px 16px',
+    backgroundColor: 'rgba(247, 247, 247, 0.9)', // Полупрозрачный серый цвет, похожий на другие компоненты
+    height: '40px',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    borderBottomLeftRadius: '10px',
+    borderBottomRightRadius: '10px',
+    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Тень, аналогичная другим компонентам
       }}>
         <FlexBoxRow style={{ justifyContent: 'flex-start' }}>
           <img src={AppIcon} alt="Neuron Icon" style={{
@@ -300,8 +313,8 @@ function HomePage() {
       <AppContainer style={{  width: '100%', marginLeft: 0, marginRight: 0 }}>
 
         <FlexBoxRow style={{ flexDirection: 'column', alignItems: 'center', width: '100%', rowGap: 10 }}>
-        <NewComponent style={{ height: '25vh', backgroundColor: '#fff', boxShadow: 'inherit', padding: 0}}>
-          <FlexBoxRow style={{ flexDirection: 'row', alignItems: 'center', width: '100%', marginBottom: 10 }}>
+        <NewComponent style={{ height: '25vh', backgroundColor: '#fff', boxShadow: 'inherit', padding: 0, background: 'transparent' }}>
+          <FlexBoxRow style={{ flexDirection: 'row', alignItems: 'center', width: '100%'  }}>
 
             <FlexBoxCol style={{ width: '50%', marginRight: 10 }}>
               <NftComponent style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -359,7 +372,7 @@ function HomePage() {
               onClick={handleTransactionSend}
               disabled={transactionSent || !wallet}
               style={{                
-                width: '100%',
+                width: '90%',
                 zIndex: 1,
                 fontSize: 21,
                 fontWeight: 700,

@@ -15,7 +15,14 @@ const StyledApp = styled.div`
   height: 100vh;
   padding: 20px 20px;
   overflow: hidden;
-  background-color: #fff;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.3), /* Темный черный с прозрачностью 0.3 */
+    rgba(0, 0, 0, 0.15) 30%, /* Черный с прозрачностью 0.15 на 30% */
+    rgba(50, 50, 50, 0.25) 50%, /* Серый с прозрачностью 0.25 на 50% */
+    rgba(0, 0, 0, 0.15) 70%, /* Черный с прозрачностью 0.15 на 70% */
+    rgba(0, 0, 0, 0.3) /* Темный черный с прозрачностью 0.3 */
+  ); /* Улучшенный узорный темный градиент */
   overflow-y: auto; /* Add this to enable scrolling within the app */
 `;
 const AppContainer = styled.div`
@@ -27,41 +34,45 @@ const AppContainer = styled.div`
   padding: 0 10px;
 `;
 
+
 const CollectionGridContainer = styled.div`
-  overflow-y: scroll; /* Change from auto to scroll */
-  -webkit-scrollbar: none; /* Add this to hide the scrollbar in WebKit browsers */
-  -moz-scrollbar: none; /* Add this to hide the scrollbar in Mozilla browsers */
-  scrollbar-width: none; /* Add this to hide the scrollbar in modern browsers */
-  height: 80vh; /* Keep the fixed height */
-  padding: 0px;
   overflow-y: auto; /* Enable scrolling within the container */
   -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on mobile devices */
+  height: 80vh; /* Fixed height */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-`;
 
+  /* Hide the scrollbar */
+  &::-webkit-scrollbar {
+    display: none; /* Hide the scrollbar for Chrome, Safari, and Opera */
+  }
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+`;
 
 
 const CollectionItem = styled.div`
   width:75px;
-  background-color: #f7f7f7;
+ background-color: rgba(247, 247, 247, 0.4); /* Полупрозрачный светло-серый цвет */
   border-radius: 10px;
   padding: 0px;
   text-align: center;
 `;
 
 const ImageContainer = styled.div`
-  width:75px;
+  width: 75px;
   height: 75px; 
-  overflow: hidden; /* Hide overflow to create a clean cut */
+  overflow: hidden; /* Скрытие избыточного содержимого для чистого обрезания */
   border-radius: 8px;
+    background-color: transparent; /* Прозрачный фон */
 `;
 
 const CollectionImage = styled.img`
   width: 99%;
   height: 100%;
   object-fit: cover; /* Scale image to fit container */
+
 `;
 
 const CollectionText = styled.div`
@@ -110,42 +121,36 @@ function CollectionPage() {
 
   return (
     <StyledApp>
-      <FlexBoxRow
-        style={{
-          justifyContent: "flex-start",
-          alignItems: "center",
-          padding: "8px 16px",
-          backgroundColor: "#f7f7f7",
-          height: 40,
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          borderBottomLeftRadius: 10,
-          borderBottomRightRadius: 10,
-        }}
-      >
-        <FlexBoxRow style={{}}>
-          <img
-            src={AppIcon}
-            alt="Neuron Icon"
-            style={{
-              width: 25,
-              height: 25,
-            }}
-          />
-          <h2
-            style={{
-              color: "#666", // серый цвет текста
-              background: "linear-gradient(to right, #666, #999)", // градиент для текста
-              WebkitBackgroundClip: "text", // для корректного отображения градиента в Chrome
-              WebkitTextFillColor: "transparent", // для корректного отображения градиента в Chrome
-            }}
-          >
+      <FlexBoxRow style={{
+display: 'flex',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    padding: '8px 16px',
+    backgroundColor: 'rgba(247, 247, 247, 0.9)', // Полупрозрачный серый цвет, похожий на другие компоненты
+    height: '40px',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    borderBottomLeftRadius: '10px',
+    borderBottomRightRadius: '10px',
+    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Тень, аналогичная другим компонентам
+      }}>
+        <FlexBoxRow style={{ justifyContent: 'flex-start' }}>
+          <img src={AppIcon} alt="Neuron Icon" style={{
+            width: 25,
+            height: 25
+          }} />
+          <h2 style={{
+            color: '#666', // серый цвет текста
+            background: 'linear-gradient(to right, #666, #999)', // градиент для текста
+            WebkitBackgroundClip: 'text', // для корректного отображения градиента в Chrome
+            WebkitTextFillColor: 'transparent' // для корректного отображения градиента в Chrome
+          }}>
             NEURON
           </h2>
         </FlexBoxRow>
-        <TonConnectButton style={{ marginLeft: "auto" }} /> {/* Используем стилизованную кнопку TonConnect */}
+        <TonConnectButton style={{ marginLeft: 'auto' }} /> {/* Используем стилизованную кнопку TonConnect */}
       </FlexBoxRow>
       {showCollection && (
         <AppContainer style={{ paddingTop: '5vh', width: "85vw" }}>
