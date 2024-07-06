@@ -18,14 +18,14 @@ const StyledApp = styled.div`
   width: 90vw;
   height: 100vh;
   padding: 20px;
-   background: linear-gradient(
+  background: linear-gradient(
     45deg,
-    rgba(0, 0, 0, 0.3), /* Темный черный с прозрачностью 0.3 */
-    rgba(0, 0, 0, 0.15) 30%, /* Черный с прозрачностью 0.15 на 30% */
-    rgba(50, 50, 50, 0.25) 50%, /* Серый с прозрачностью 0.25 на 50% */
-    rgba(0, 0, 0, 0.15) 70%, /* Черный с прозрачностью 0.15 на 70% */
-    rgba(0, 0, 0, 0.3) /* Темный черный с прозрачностью 0.3 */
-  ); /* Улучшенный узорный темный градиент */
+    #f0f0f0,  /* Светло-серый */
+    #d9d9d9 30%, /* Серый */
+    #bfbfbf 50%, /* Более темный серый */
+    #d9d9d9 70%, /* Серый */
+    #f0f0f0 /* Светло-серый */
+  ); /* Бело-серый градиент */
 `;
 const AppContainer = styled.div`
   max-width: 900px;
@@ -40,8 +40,10 @@ const QuantityComponent = styled.div`
   align-items: center;
   padding: 16px;
   border-radius: 8px;
-  background-color: rgba(242, 242, 242, 0.6); /* Более прозрачный белый цвет */
-  backdrop-filter: blur(40px); /* Эффект размытия */
+  background-color: rgba(255, 255, 255, 0.1); /* Очень прозрачный белый цвет */
+  backdrop-filter: blur(20px) saturate(180%); /* Увеличен эффект размытия и насыщенности */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Более выразительная тень */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Полупрозрачная белая граница */
 `;
 const QuantityInfo = styled.div`
   display: flex;
@@ -84,8 +86,10 @@ const NftComponent = styled.div`
   align-items: center;
   padding: 16px;
   border-radius: 8px;
-  background-color: rgba(242, 242, 242, 0.6); /* Более прозрачный белый цвет */
-  backdrop-filter: blur(40px); /* Эффект размытия */
+  background-color: rgba(255, 255, 255, 0.1); /* Очень прозрачный белый цвет */
+  backdrop-filter: blur(20px) saturate(180%); /* Увеличен эффект размытия и насыщенности */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Более выразительная тень */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Полупрозрачная белая граница */
 `;
 const NftIcon = styled.img`
   width: 32px;
@@ -119,10 +123,12 @@ const NewComponent = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(242, 242, 242, 0.6); /* Более прозрачный белый цвет */
+  background-color: rgba(255, 255, 255, 0.1); /* Очень прозрачный белый цвет */
   padding: 16px;
   border-radius: 8px;
-  backdrop-filter: blur(40px); /* Эффект размытия */
+  backdrop-filter: blur(20px) saturate(180%); /* Увеличен эффект размытия и насыщенности */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Более выразительная тень */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Полупрозрачная белая граница */
 `;
 const BuyButton = styled.button`
   width: 70%;
@@ -313,7 +319,7 @@ display: 'flex',
       <AppContainer style={{  width: '100%', marginLeft: 0, marginRight: 0 }}>
 
         <FlexBoxRow style={{ flexDirection: 'column', alignItems: 'center', width: '100%', rowGap: 10 }}>
-        <NewComponent style={{ height: '25vh', backgroundColor: '#fff', boxShadow: 'inherit', padding: 0, background: 'transparent' }}>
+        <NewComponent style={{ height: '25vh', backgroundColor: '#fff', boxShadow: 'inherit', padding: 0, background: 'transparent', border: 'none'  }}>
           <FlexBoxRow style={{ flexDirection: 'row', alignItems: 'center', width: '100%'  }}>
 
             <FlexBoxCol style={{ width: '50%', marginRight: 10 }}>

@@ -17,12 +17,12 @@ const StyledApp = styled.div`
   overflow: hidden;
   background: linear-gradient(
     45deg,
-    rgba(0, 0, 0, 0.3), /* Темный черный с прозрачностью 0.3 */
-    rgba(0, 0, 0, 0.15) 30%, /* Черный с прозрачностью 0.15 на 30% */
-    rgba(50, 50, 50, 0.25) 50%, /* Серый с прозрачностью 0.25 на 50% */
-    rgba(0, 0, 0, 0.15) 70%, /* Черный с прозрачностью 0.15 на 70% */
-    rgba(0, 0, 0, 0.3) /* Темный черный с прозрачностью 0.3 */
-  ); /* Улучшенный узорный темный градиент */
+    #f0f0f0,  /* Светло-серый */
+    #d9d9d9 30%, /* Серый */
+    #bfbfbf 50%, /* Более темный серый */
+    #d9d9d9 70%, /* Серый */
+    #f0f0f0 /* Светло-серый */
+  ); /* Бело-серый градиент */
   overflow-y: auto; /* Add this to enable scrolling within the app */
    /* Hide the scrollbar for Chrome, Safari, and Opera */
   &::-webkit-scrollbar {
@@ -74,10 +74,13 @@ const CollectionGridContainer = styled.div`
 
 const CollectionItem = styled.div`
   width:75px;
-  background-color: rgba(247, 247, 247, 0.4); /* Полупрозрачный светло-серый цвет */
+ background-color: rgba(247, 247, 247, 0.4); /* Полупрозрачный светло-серый цвет */
   border-radius: 10px;
   padding: 0px;
   text-align: center;
+  backdrop-filter: blur(20px) saturate(180%); /* Эффект размытия и насыщенности */
+
+
 `;
 
 const ImageContainer = styled.div`
