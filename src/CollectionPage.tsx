@@ -82,9 +82,6 @@ const CollectionItem = styled.div`
   border-radius: 10px;
   padding: 0px;
   text-align: center;
-  backdrop-filter: blur(20px) saturate(180%); /* Эффект размытия и насыщенности */
-
-
 `;
 
 const ImageContainer = styled.div`

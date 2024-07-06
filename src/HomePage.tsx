@@ -34,14 +34,15 @@ const StyledApp = styled.div`
   height: 100vh;
   padding: 20px;
   background: linear-gradient(
-    45deg,
-    #f0f0f0,  /* Светло-серый */
-    #d9d9d9 30%, /* Серый */
-    #bfbfbf 50%, /* Более темный серый */
-    #d9d9d9 70%, /* Серый */
-    #f0f0f0 /* Светло-серый */
-  ); /* Бело-серый градиент */
+    135deg,
+    #f0f0f0 0%, /* Светло-серый */
+    #e0e0e0 25%, /* Светлый серый */
+    #bfbfbf 50%, /* Серый */
+    #a0a0a0 75%, /* Темно-серый */
+    #f0f0f0 100% /* Светло-серый */
+  ); /* Улучшенный узорный серый градиент */
 `;
+
 const AppContainer = styled.div`
   max-width: 900px;
   margin: 0 ;
@@ -55,10 +56,9 @@ const QuantityComponent = styled.div`
   align-items: center;
   padding: 16px;
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.1); /* Очень прозрачный белый цвет */
-  backdrop-filter: blur(20px) saturate(180%); /* Увеличен эффект размытия и насыщенности */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Более выразительная тень */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Полупрозрачная белая граница */
+  background-color: rgba(255, 255, 255, 0.1); /* Прозрачный белый цвет */
+  backdrop-filter: blur(15px) saturate(150%); /* Эффект размытия и насыщенности */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Тень */
 `;
 const QuantityInfo = styled.div`
   display: flex;
@@ -101,10 +101,9 @@ const NftComponent = styled.div`
   align-items: center;
   padding: 16px;
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.1); /* Очень прозрачный белый цвет */
-  backdrop-filter: blur(20px) saturate(180%); /* Увеличен эффект размытия и насыщенности */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Более выразительная тень */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Полупрозрачная белая граница */
+  background-color: rgba(255, 255, 255, 0.1); /* Прозрачный белый цвет */
+  backdrop-filter: blur(15px) saturate(150%); /* Эффект размытия и насыщенности */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Тень */
 `;
 const NftIcon = styled.img`
   width: 32px;
@@ -141,10 +140,10 @@ const NewComponent = styled.div`
   background-color: rgba(255, 255, 255, 0.1); /* Очень прозрачный белый цвет */
   padding: 16px;
   border-radius: 8px;
-  backdrop-filter: blur(20px) saturate(180%); /* Увеличен эффект размытия и насыщенности */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Более выразительная тень */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Полупрозрачная белая граница */
+  backdrop-filter: blur(10px) saturate(150%); /* Уменьшен эффект размытия и насыщенности */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Менее выразительная тень */
 `;
+
 const BuyButton = styled.button`
   width: 70%;
   background: #000;
