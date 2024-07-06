@@ -11,6 +11,21 @@ import BottomNavBar from './BottomNavBar'
 import TonIcon from "./components/styled/ton.png";
 import AppIcon from "./components/styled/AppIcon.png";
 
+
+
+const ScrollWrapper = styled.div`
+   height: 80vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+`;
+
 const StyledApp = styled.div`
   position: fixed;
   top: 0;
@@ -282,7 +297,7 @@ function HomePage() {
     }
   };
   return (
-
+    
     <StyledApp style={{paddingTop: '10vh' }}>
 
       <FlexBoxRow style={{
@@ -316,6 +331,7 @@ display: 'flex',
         </FlexBoxRow>
         <TonConnectButton style={{ marginLeft: 'auto' }} /> {/* Используем стилизованную кнопку TonConnect */}
       </FlexBoxRow>
+      <ScrollWrapper>
       <AppContainer style={{  width: '100%', marginLeft: 0, marginRight: 0 }}>
 
         <FlexBoxRow style={{ flexDirection: 'column', alignItems: 'center', width: '100%', rowGap: 10 }}>
@@ -401,8 +417,10 @@ display: 'flex',
           </NewComponent>
         </FlexBoxRow>
       </AppContainer>
+      </ScrollWrapper>
       <BottomNavBar />
     </StyledApp>
+    
   );
 }
 export default HomePage;

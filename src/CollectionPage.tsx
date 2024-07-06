@@ -43,18 +43,22 @@ const AppContainer = styled.div`
 `;
 
 const ScrollWrapper = styled.div`
-  height: 100vh; /* Fixed height */
-  overflow: hidden; /* Hide scrollbar */
-  /* Hide the scrollbar for Chrome, Safari, and Opera */
+   height: 80vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  
   &::-webkit-scrollbar {
     display: none;
   }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 `;
 
 const CollectionGridContainer = styled.div`
   overflow-y: scroll; /* Enable scrolling within the container */
   -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on mobile devices */
-  height: 80vh; /* Fixed height */
+  height: 100%; /* Fixed height */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
