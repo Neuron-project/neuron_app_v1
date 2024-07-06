@@ -27,36 +27,20 @@ const AppContainer = styled.div`
   padding: 0 10px;
 `;
 
-// const CollectionGridContainer = styled.div`
-//   overflow-y: scroll; /* Change from auto to scroll */
-//   -webkit-scrollbar: none; /* Add this to hide the scrollbar in WebKit browsers */
-//   -moz-scrollbar: none; /* Add this to hide the scrollbar in Mozilla browsers */
-//   scrollbar-width: none; /* Add this to hide the scrollbar in modern browsers */
-//   height: 80vh; /* Keep the fixed height */
-//   padding: 0px;
-//   overflow-y: auto; /* Enable scrolling within the container */
-//   -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on mobile devices */
-//   display: grid;
-//   grid-template-columns: repeat(4, 1fr);
-//   gap: 10px;
-// `;
-
-
 const CollectionGridContainer = styled.div`
+  overflow-y: scroll; /* Change from auto to scroll */
+  -webkit-scrollbar: none; /* Add this to hide the scrollbar in WebKit browsers */
+  -moz-scrollbar: none; /* Add this to hide the scrollbar in Mozilla browsers */
+  scrollbar-width: none; /* Add this to hide the scrollbar in modern browsers */
+  height: 80vh; /* Keep the fixed height */
+  padding: 0px;
   overflow-y: auto; /* Enable scrolling within the container */
   -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on mobile devices */
-  height: 80vh; /* Fixed height */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-
-  /* Hide the scrollbar */
-  &::-webkit-scrollbar {
-    display: none; /* Hide the scrollbar for Chrome, Safari, and Opera */
-  }
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
 `;
+
 
 
 const CollectionItem = styled.div`
