@@ -305,7 +305,7 @@ function HomePage() {
         </FlexBoxRow>
         <TonConnectButton style={{ marginLeft: 'auto' }} /> {/* Используем стилизованную кнопку TonConnect */}
       </FlexBoxRow>
-      <AppContainer style={{  width: '90vw', marginLeft: 0, marginRight: 0 }}>
+      <AppContainer style={{  width: '100%', marginLeft: 0, marginRight: 0 }}>
 
         <FlexBoxRow style={{ flexDirection: 'column', alignItems: 'center', width: '100%', rowGap: 10 }}>
         <NewComponent style={{ height: '25vh', backgroundColor: '#fff', boxShadow: 'inherit', padding: 0}}>
