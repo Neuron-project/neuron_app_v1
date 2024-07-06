@@ -15,6 +15,7 @@ const StyledApp = styled.div`
   height: 100vh;
   padding: 20px 20px;
   overflow: hidden;
+  padding: 0 10px;
   background-color: #fff;
   overflow-y: auto; /* Add this to enable scrolling within the app */
 `;
