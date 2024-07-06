@@ -7,47 +7,28 @@
     <title></title>
     <style>
       body {
+        height: 100vh !important;
         position: static !important;
         overscroll-behavior: none;
-        overflow: hidden;
       }
-
+  
       flutter-view {
         position: fixed !important;
-        width: 100vw !important;
-        height: 100vh !important;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch; /* Обеспечивает плавную прокрутку на iOS */
+        max-width: 100vw !important;
+        max-height: 100vh !important;
       }
-
+  
       /* Safari-specific CSS */
       @supports (-webkit-touch-callout: inherit) {
         body {
-          height: 100%;
+          height: 1000vh !important;
         }
-      }
-
-      /* Скрыть полосу прокрутки для Chrome, Safari и Opera */
-      body::-webkit-scrollbar {
-        display: none;
-      }
-
-      /* Скрыть полосу прокрутки для IE, Edge и Firefox */
-      body {
-        -ms-overflow-style: none;  /* Для IE и Edge */
-        scrollbar-width: none;  /* Для Firefox */
       }
     </style>
   </head>
   <body>
-    <flutter-view id="flutterView"></flutter-view>
+    <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script>
-      window.addEventListener('load', function() {
-        // Прокрутка к нижней части страницы
-        const flutterView = document.getElementById('flutterView');
-        flutterView.scrollTop = flutterView.scrollHeight;
-      });
-    </script>
+    <script>window.scroll(0, window.document.body.scrollHeight);</script>
   </body>
 </html>
