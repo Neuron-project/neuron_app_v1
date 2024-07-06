@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,24 +17,26 @@
         position: fixed !important;
         max-width: 100vw !important;
         max-height: 100vh !important;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch; /* Обеспечивает плавную прокрутку на iOS */
       }
   
-      /* Safari-specific CSS */
+      /* CSS для Safari */
       @supports (-webkit-touch-callout: inherit) {
         body {
           height: 1000vh !important;
         }
       }
 
-      /* Скрыть полосу прокрутки для Chrome, Safari и Opera */
+      /* Скрытие полосы прокрутки для Chrome, Safari и Opera */
       body::-webkit-scrollbar {
         display: none;
       }
 
-      /* Скрыть полосу прокрутки для IE, Edge и Firefox */
+      /* Скрытие полосы прокрутки для IE, Edge и Firefox */
       body {
-        -ms-overflow-style: none;  /* Для IE и Edge */
-        scrollbar-width: none;  /* Для Firefox */
+        -ms-overflow-style: none;  /* IE и Edge */
+        scrollbar-width: none;  /* Firefox */
       }
     </style>
     <script type="module" crossorigin src="/neuron_app_v1/assets/index-d2049c84.js"></script>
@@ -44,9 +45,16 @@
   <body>
     <div id="root"></div>
     
-    <!-- <script>window.scroll(0, window.document.body.scrollHeight);</script> -->
     <script>
-      document.body.scrollTop = document.body.scrollHeight;
+      window.addEventListener('load', function() {
+        // Используйте scrollIntoView для плавной прокрутки к нижней части страницы
+        document.body.scrollIntoView({ block: 'end', behavior: 'smooth' });
+      });
+
+      // Добавление слушателей событий касания для предотвращения сворачивания приложения
+      document.body.addEventListener('touchmove', function(event) {
+        event.preventDefault(); // Предотвращает стандартное поведение касания, которое может вызывать сворачивание приложения
+      }, { passive: false });
     </script>
   </body>
 </html>
