@@ -311,7 +311,7 @@ function HomePage() {
         <NewComponent style={{ height: '25vh', backgroundColor: '#fff', boxShadow: 'inherit', padding: 0}}>
           <FlexBoxRow style={{ flexDirection: 'row', alignItems: 'center', width: '100%', marginBottom: 10 }}>
 
-            <FlexBoxCol style={{ width: '50%', marginRight: 15 }}>
+            <FlexBoxCol style={{ width: '50%', marginRight: 10 }}>
               <NftComponent style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <NftInfo>
                   <NftTitle style={{ textAlign: 'center' }}>
