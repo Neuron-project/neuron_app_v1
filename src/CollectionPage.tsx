@@ -15,12 +15,11 @@ const StyledApp = styled.div`
   height: 100vh;
   padding: 20px 20px;
   overflow: hidden;
-  padding: 0 10px;
   background-color: #fff;
   overflow-y: auto; /* Add this to enable scrolling within the app */
 `;
 const AppContainer = styled.div`
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto; /* Center the content */
   display: flex;
   flex-direction: column; /* Arrange items vertically */
@@ -118,7 +117,7 @@ function CollectionPage() {
           padding: "8px 16px",
           backgroundColor: "#f7f7f7",
           height: 40,
-          position: "fixed",
+          position: "absolute",
           top: 0,
           left: 0,
           right: 0,
