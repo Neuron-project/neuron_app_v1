@@ -1149,7 +1149,7 @@ PERFORMANCE OF THIS SOFTWARE.
   position: fixed;
   top: 0;
   left: 0;
-  width: 90vw;
+  width: 100vw; /* Увеличить до полной ширины */
   height: 100vh;
   padding: 20px 20px;
   overflow: hidden;
@@ -1163,14 +1163,9 @@ PERFORMANCE OF THIS SOFTWARE.
   gap: 10px;
   padding: 0 10px;
 `,Gee=cr.div`
-  overflow-y: scroll; /* Change from auto to scroll */
-  -webkit-scrollbar: none; /* Add this to hide the scrollbar in WebKit browsers */
-  -moz-scrollbar: none; /* Add this to hide the scrollbar in Mozilla browsers */
-  scrollbar-width: none; /* Add this to hide the scrollbar in modern browsers */
-  height: 80vh; /* Keep the fixed height */
-  padding: 0px;
-  overflow-y: auto; /* Enable scrolling within the container */
-  -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on mobile devices */
+overflow-y: auto; /* Разрешить прокрутку внутри контейнера */
+  -webkit-overflow-scrolling: touch; /* Обеспечить плавную прокрутку на мобильных устройствах */
+  height: calc(100vh - 80px); /* Высота контейнера */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
