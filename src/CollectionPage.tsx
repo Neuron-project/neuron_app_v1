@@ -45,7 +45,8 @@ const CollectionGridContainer = styled.div`
 
   /* Hide the scrollbar */
   &::-webkit-scrollbar {
-    display: none; /* Hide the scrollbar for Chrome, Safari, and Opera */
+    width: 0;
+    height: 0;
   }
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
