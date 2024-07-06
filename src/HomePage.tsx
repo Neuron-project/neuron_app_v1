@@ -282,7 +282,7 @@ function HomePage() {
         padding: '8px 16px',
         backgroundColor: '#f7f7f7',
         height: 40,
-        position: 'absolute',
+        position: 'fixed',
         top: 0,
         left: 0,
         right: 0,
