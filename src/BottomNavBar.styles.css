@@ -7,10 +7,12 @@
   justify-content: space-around;
   align-items: center;
   padding: 10px;
-  background-color: rgba(247, 247, 247, 0.4); /* Полупрозрачный цвет */
+  background-color: rgba(255, 255, 255, 0.1); /* Очень прозрачный белый цвет */
+  backdrop-filter: blur(20px) saturate(180%); /* Увеличенный эффект размытия и насыщенности */
   height: 50px;
   z-index: 1;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Более выразительная тень */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Полупрозрачная белая граница */
 }
 
 .bottom-nav-bar > * {

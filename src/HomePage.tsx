@@ -40,8 +40,10 @@ const QuantityComponent = styled.div`
   align-items: center;
   padding: 16px;
   border-radius: 8px;
-  background-color: rgba(242, 242, 242, 0.6); /* Более прозрачный белый цвет */
-  backdrop-filter: blur(40px); /* Эффект размытия */
+  background-color: rgba(255, 255, 255, 0.1); /* Очень прозрачный белый цвет */
+  backdrop-filter: blur(20px) saturate(180%); /* Увеличен эффект размытия и насыщенности */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Более выразительная тень */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Полупрозрачная белая граница */
 `;
 const QuantityInfo = styled.div`
   display: flex;
@@ -84,8 +86,10 @@ const NftComponent = styled.div`
   align-items: center;
   padding: 16px;
   border-radius: 8px;
-  background-color: rgba(242, 242, 242, 0.6); /* Более прозрачный белый цвет */
-  backdrop-filter: blur(40px); /* Эффект размытия */
+  background-color: rgba(255, 255, 255, 0.1); /* Очень прозрачный белый цвет */
+  backdrop-filter: blur(20px) saturate(180%); /* Увеличен эффект размытия и насыщенности */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Более выразительная тень */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Полупрозрачная белая граница */
 `;
 const NftIcon = styled.img`
   width: 32px;
@@ -119,10 +123,12 @@ const NewComponent = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(242, 242, 242, 0.6); /* Более прозрачный белый цвет */
+  background-color: rgba(255, 255, 255, 0.1); /* Очень прозрачный белый цвет */
   padding: 16px;
   border-radius: 8px;
-  backdrop-filter: blur(40px); /* Эффект размытия */
+  backdrop-filter: blur(20px) saturate(180%); /* Увеличен эффект размытия и насыщенности */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Более выразительная тень */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Полупрозрачная белая граница */
 `;
 const BuyButton = styled.button`
   width: 70%;
@@ -313,7 +319,7 @@ display: 'flex',
       <AppContainer style={{  width: '100%', marginLeft: 0, marginRight: 0 }}>
 
         <FlexBoxRow style={{ flexDirection: 'column', alignItems: 'center', width: '100%', rowGap: 10 }}>
-        <NewComponent style={{ height: '25vh', backgroundColor: '#fff', boxShadow: 'inherit', padding: 0, background: 'transparent' }}>
+        <NewComponent style={{ height: '25vh', backgroundColor: '#fff', boxShadow: 'inherit', padding: 0, background: 'transparent', border: 'none'  }}>
           <FlexBoxRow style={{ flexDirection: 'row', alignItems: 'center', width: '100%'  }}>
 
             <FlexBoxCol style={{ width: '50%', marginRight: 10 }}>
