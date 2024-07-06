@@ -26,7 +26,7 @@ const StyledApp = styled.div`
   overflow-y: auto; /* Add this to enable scrolling within the app */
 `;
 const AppContainer = styled.div`
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto; /* Center the content */
   display: flex;
   flex-direction: column; /* Arrange items vertically */
