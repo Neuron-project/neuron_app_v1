@@ -11,7 +11,7 @@
         height: 100vh !important;
         position: static !important;
         overscroll-behavior: none;
-        overflow-y: hidden;
+        
       }
 
       flutter-view {
@@ -19,6 +19,11 @@
         max-width: 100vw !important;
         max-height: 100vh !important;
         overflow-y: scroll;
+      }
+      @media screen and (min-width: 500px) {
+        body {
+        overflow-y: hidden;
+        }
       }
 
       /* Safari-specific CSS */
