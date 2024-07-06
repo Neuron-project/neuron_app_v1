@@ -244,14 +244,6 @@ function HomePage() {
       }
     ]
   }
-  useEffect(() => {
-    document.documentElement.addEventListener('touchstart', function (event) {
-      if (event.touches.length > 1) {
-        event.preventDefault();
-      }
-    });
-  }, []);
-
 
   const [isRegistered, setIsRegistered] = useState(false);
 
