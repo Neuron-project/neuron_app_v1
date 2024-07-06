@@ -24,32 +24,51 @@ const StyledApp = styled.div`
     #f0f0f0 /* Светло-серый */
   ); /* Бело-серый градиент */
   overflow-y: auto; /* Add this to enable scrolling within the app */
+   /* Hide the scrollbar for Chrome, Safari, and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 const AppContainer = styled.div`
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto; /* Center the content */
   display: flex;
   flex-direction: column; /* Arrange items vertically */
   gap: 10px;
   padding: 0 10px;
+   /* Hide the scrollbar for Chrome, Safari, and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
+const ScrollWrapper = styled.div`
+  height: 100vh; /* Fixed height */
+  overflow: hidden; /* Hide scrollbar */
+  /* Hide the scrollbar for Chrome, Safari, and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
 
 const CollectionGridContainer = styled.div`
-  overflow-y: auto; /* Enable scrolling within the container */
+  overflow-y: scroll; /* Enable scrolling within the container */
   -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on mobile devices */
   height: 80vh; /* Fixed height */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
 
-  /* Hide the scrollbar */
+  /* Hide the scrollbar for Chrome, Safari, and Opera */
   &::-webkit-scrollbar {
-    width: 0;
-    height: 0;
+    display: none;
   }
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  /* Hide the scrollbar for Chrome, Safari, and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 
@@ -155,6 +174,7 @@ display: 'flex',
       </FlexBoxRow>
       {showCollection && (
         <AppContainer style={{ paddingTop: '5vh', width: "85vw" }}>
+          <ScrollWrapper>
           <CollectionGridContainer>
             
               {collectionData.map((item) => (
@@ -171,6 +191,7 @@ display: 'flex',
               ))}
             
           </CollectionGridContainer>
+          </ScrollWrapper>
         </AppContainer>
       )}
       <BottomNavBar />
