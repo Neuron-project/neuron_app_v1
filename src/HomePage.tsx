@@ -45,7 +45,6 @@ const QuantityComponent = styled.div`
   padding: 16px;
   border-radius: 8px;
   background-color: rgba(0, 0, 0, 0.03); /* Прозрачный белый цвет */
-  backdrop-filter: blur(2px) ; /* Эффект размытия и насыщенности */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Тень */
 `;
 const QuantityInfo = styled.div`
@@ -90,7 +89,6 @@ const NftComponent = styled.div`
   padding: 16px;
   border-radius: 8px;
   background-color: rgba(0, 0, 0, 0.03); /* Прозрачный белый цвет */
-  backdrop-filter: blur(2px); /* Эффект размытия и насыщенности */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Тень */
 `;
 const NftIcon = styled.img`
@@ -128,7 +126,6 @@ const NewComponent = styled.div`
   background-color: rgba(0, 0, 0, 0.03); /* Прозрачный белый цвет */
   padding: 16px;
   border-radius: 8px;
-  backdrop-filter: blur(2px); /* Уменьшен эффект размытия и насыщенности */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Менее выразительная тень */
 `;
 

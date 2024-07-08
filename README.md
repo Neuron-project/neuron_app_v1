@@ -43,11 +43,3 @@ The project is highly-opinionated, and there are many other alternate routes it 
 
 - [ ] Add smart-contract interaction and collection view tab
 
-# License
-
-
-# neuron_app_v1
-# neuron_app_v1
-# Neuron_app_v1
-# neuron_app_v1
-# neuron_app_v1
