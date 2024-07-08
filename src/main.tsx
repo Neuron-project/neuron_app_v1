@@ -5,11 +5,14 @@ import App from "./App";
 import "./index.css";
 
 
-const manifestUrl = `${window.location.origin}/tonconnect-manifest.json`;
+// this manifest is used temporarily for development purposes
+const manifestUrl =
+  "https://raw.githubusercontent.com/Neuron-project/manifest/main/tonconnect-manifest.json";
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { refetchOnWindowFocus: false } },
 });
+
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   
