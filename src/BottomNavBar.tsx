@@ -5,6 +5,7 @@ import WalletIcon from "./components/styled/WalletIcon.png";
 import CollectionIcon from "./components/styled/CollectionIcon.png";
 
 
+
 interface NavItem {
   to: string;
   icon: string;
@@ -18,6 +19,7 @@ const navItems: NavItem[] = [
 
 const BottomNavBar: React.FC = () => {
   return (
+
     <nav className="bottom-nav-bar">
       {navItems.map((item) => (
         <NavLink to={item.to} key={item.to} /*activeCaassName='active'*/>
@@ -31,6 +33,7 @@ const BottomNavBar: React.FC = () => {
         </NavLink>
       ))}
     </nav>
+
   );
 };
 

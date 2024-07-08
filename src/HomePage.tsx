@@ -10,7 +10,7 @@ import { TonClient } from 'ton';
 import BottomNavBar from './BottomNavBar'
 import TonIcon from "./components/styled/ton.png";
 import AppIcon from "./components/styled/AppIcon.png";
-import neuronPattern from './components/styled/neuron-pattern.svg';
+
 
 
 const StyledApp = styled.div`
@@ -20,7 +20,7 @@ const StyledApp = styled.div`
   width: 90vw;
   height: 100vh;
   padding: 20px;
-  background: url(${neuronPattern}) repeat, linear-gradient(
+  background: linear-gradient(
     135deg,
     #ffffff 0%,    /* Белый */
     #f8f8f8 25%,   /* Очень светло-серый */
@@ -397,7 +397,7 @@ display: 'flex',
                 transition: transactionSent ? 'none' : 'background 0.3s ease-in-out', // disable animation when button is disabled
                 boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
                 WebkitTapHighlightColor: 'transparent',
-                opacity: transactionSent ? 0.5 : 1, // make button semi-transparent when transaction is sent
+                opacity: transactionSent ? 0.1 : 1, // make button semi-transparent when transaction is sent
                 pointerEvents: transactionSent ? 'none' : 'auto', // disable pointer events when button is disabled
               }}
             >

@@ -6,7 +6,7 @@ import "@twa-dev/sdk";
 import BottomNavBar from "./BottomNavBar";
 import AppIcon from "./components/styled/AppIcon.png";
 import LazyLoad from "react-lazy-load";
-import neuronPattern from './components/styled/neuron-pattern.svg';
+
 
 
 const StyledApp = styled.div`
@@ -16,7 +16,7 @@ const StyledApp = styled.div`
   width: 90vw;
   height: 100vh;
   padding: 20px;
-  background: url(${neuronPattern}) repeat, linear-gradient(
+  background: linear-gradient(
     135deg,
     #ffffff 0%,    /* Белый */
     #f8f8f8 25%,   /* Очень светло-серый */

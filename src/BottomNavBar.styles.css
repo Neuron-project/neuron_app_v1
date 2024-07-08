@@ -1,19 +1,21 @@
 .bottom-nav-bar {
   position: fixed;
-  bottom: 0; /* Фиксируем панель внизу страницы */
-  left: 0;
-  right: 0;
+  bottom: 10px; /* Добавляем небольшой отступ снизу */
+  left: 10px; /* Добавляем небольшой отступ слева */
+  right: 10px; /* Добавляем небольшой отступ справа */
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 10px;
+  padding: 8px; /* Уменьшаем внутренний отступ */
   background-color: rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(1px) ;
-  height: 50px;
+  backdrop-filter: blur(1px);
+  height: 40px; /* Уменьшаем высоту панели */
   z-index: 1;
-  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1); /* Тень снизу */
-  border-top-left-radius: 20px; /* Округление верхних углов */
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px; /* Скругляем левый нижний угол */
+  border-bottom-right-radius: 20px; /* Скругляем правый нижний угол */
 }
 
 .bottom-nav-bar > * {
