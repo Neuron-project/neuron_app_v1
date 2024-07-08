@@ -10,6 +10,7 @@ import { TonClient } from 'ton';
 import BottomNavBar from './BottomNavBar'
 import TonIcon from "./components/styled/ton.png";
 import AppIcon from "./components/styled/AppIcon.png";
+import neuronPattern from './components/styled/neuron-pattern.svg';
 
 
 const StyledApp = styled.div`
@@ -19,14 +20,15 @@ const StyledApp = styled.div`
   width: 90vw;
   height: 100vh;
   padding: 20px;
-  background: linear-gradient(
+  background: url(${neuronPattern}) repeat, linear-gradient(
     135deg,
-    #f0f0f0 0%, /* Светло-серый */
-    #e0e0e0 25%, /* Светлый серый */
-    #bfbfbf 50%, /* Серый */
-    #a0a0a0 75%, /* Темно-серый */
-    #f0f0f0 100% /* Светло-серый */
-  ); /* Улучшенный узорный серый градиент */
+    #ffffff 0%,    /* Белый */
+    #f8f8f8 25%,   /* Очень светло-серый */
+    #e0e0e0 50%,   /* Светло-серый */
+    #f8f8f8 75%,   /* Очень светло-серый */
+    #ffffff 100%   /* Белый */
+  );
+  background-blend-mode: overlay;
 `;
 
 const AppContainer = styled.div`
@@ -43,7 +45,7 @@ const QuantityComponent = styled.div`
   padding: 16px;
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.1); /* Прозрачный белый цвет */
-  backdrop-filter: blur(15px) saturate(150%); /* Эффект размытия и насыщенности */
+  backdrop-filter: blur(4px) saturate(150%); /* Эффект размытия и насыщенности */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Тень */
 `;
 const QuantityInfo = styled.div`
@@ -88,7 +90,7 @@ const NftComponent = styled.div`
   padding: 16px;
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.1); /* Прозрачный белый цвет */
-  backdrop-filter: blur(15px) saturate(150%); /* Эффект размытия и насыщенности */
+  backdrop-filter: blur(4px) saturate(150%); /* Эффект размытия и насыщенности */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Тень */
 `;
 const NftIcon = styled.img`
@@ -126,7 +128,7 @@ const NewComponent = styled.div`
   background-color: rgba(255, 255, 255, 0.1); /* Очень прозрачный белый цвет */
   padding: 16px;
   border-radius: 8px;
-  backdrop-filter: blur(10px) saturate(150%); /* Уменьшен эффект размытия и насыщенности */
+  backdrop-filter: blur(2px) saturate(150%); /* Уменьшен эффект размытия и насыщенности */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Менее выразительная тень */
 `;
 

@@ -1,43 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta name="viewport" content="height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <link rel="icon" href="/AppIcon.png" />
+    <title>Neuron app</title>
     <style>
-      body {
-        height: 100vh !important;
-        position: static !important;
-        overscroll-behavior: none;
-        
-      }
-
-      flutter-view {
-        position: fixed !important;
-        max-width: 100vw !important;
-        max-height: 100vh !important;
-        overflow-y: scroll;
-      }
-      @media screen and (min-width: 500px) {
-        body {
-        overflow-y: hidden;
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
         }
-      }
 
-      /* Safari-specific CSS */
-      @supports (-webkit-touch-callout: inherit) {
-        body {
-          height: 100vh !important;
+        #root {
+            height: 100%;
         }
-      }
+
+        @media screen and (min-width: 500px) {
+            body {
+                overflow-y: hidden;
+            }
+        }
+
+        /* Safari-specific CSS */
+        @supports (-webkit-touch-callout: inherit) {
+            html, body {
+                height: -webkit-fill-available;
+            }
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <div id="root"></div>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script type="module" src="/src/main.tsx"></script>
-    <script>window.scroll(0, window.document.body.scrollHeight);</script>
-  </body>
-</html>
+    <script>
+        // Инициализация Telegram Web App
+        Telegram.WebApp.ready();
 
+        // Настройка поведения при запуске
+        Telegram.WebApp.expand();
+
+        // Запрет вертикальных свайпов
+        Telegram.WebApp.disableVerticalSwipe();
+
+        // Установка серого цвета для заголовка
+        Telegram.WebApp.setHeaderColor('bg_gray');
+
+        // Настройка стабильной высоты вьюпорта
+        Telegram.WebApp.viewportStableHeight(true);
+
+        // Корректировка высоты приложения при изменении высоты вьюпорта
+        function adjustHeight() {
+            document.body.style.height = `${Telegram.WebApp.viewportHeight}px`;
+        }
+
+        Telegram.WebApp.onEvent('viewportChanged', adjustHeight);
+
+        // Изначальная установка высоты
+        adjustHeight();
+    </script>
+</body>
+</html>
