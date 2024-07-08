@@ -249,6 +249,7 @@ function HomePage() {
       {
         address: 'UQB3BPxv7y35z0JVJb7YHu91vg5b4hhAAw7y-nTO8zk24Qq-',  // NFT Sale contract, that is current desired NFT Item
         amount: "1000000", // NFT Price + exactly 1 TON, excess will be returned
+        bounce: false // Отключаем bounce
       }
     ]
   }
