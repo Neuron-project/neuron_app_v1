@@ -36,30 +36,12 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script type="module" src="/src/main.tsx"></script>
     <script>
-        // Инициализация Telegram Web App
-        Telegram.WebApp.ready();
-
-        // Настройка поведения при запуске
-        Telegram.WebApp.expand();
-
-        // Запрет вертикальных свайпов
-        Telegram.WebApp.disableVerticalSwipe();
-
-        // Установка серого цвета для заголовка
-        Telegram.WebApp.setHeaderColor('bg_gray');
-
-        // Настройка стабильной высоты вьюпорта
-        Telegram.WebApp.viewportStableHeight(true);
-
-        // Корректировка высоты приложения при изменении высоты вьюпорта
-        function adjustHeight() {
-            document.body.style.height = `${Telegram.WebApp.viewportHeight}px`;
-        }
-
-        Telegram.WebApp.onEvent('viewportChanged', adjustHeight);
-
-        // Изначальная установка высоты
-        adjustHeight();
-    </script>
+      Telegram.WebApp.ready();
+  
+      // Отключение вертикальных свайпов для сворачивания/минимизации
+      Telegram.WebApp.disableVerticalSwipes();
+  
+      Telegram.WebApp.expand();
+  </script>
 </body>
 </html>

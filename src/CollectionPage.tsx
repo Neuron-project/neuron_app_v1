@@ -6,6 +6,8 @@ import "@twa-dev/sdk";
 import BottomNavBar from "./BottomNavBar";
 import AppIcon from "./components/styled/AppIcon.png";
 import LazyLoad from "react-lazy-load";
+import neuronPattern from './components/styled/neuron-pattern.svg';
+
 
 const StyledApp = styled.div`
   position: fixed;
@@ -13,21 +15,16 @@ const StyledApp = styled.div`
   left: 0;
   width: 90vw;
   height: 100vh;
-  padding: 20px 20px;
-  overflow: hidden;
-  background: linear-gradient(
-    45deg,
-    #f0f0f0,  /* Светло-серый */
-    #d9d9d9 30%, /* Серый */
-    #bfbfbf 50%, /* Более темный серый */
-    #d9d9d9 70%, /* Серый */
-    #f0f0f0 /* Светло-серый */
-  ); /* Бело-серый градиент */
-  overflow-y: auto; /* Add this to enable scrolling within the app */
-   /* Hide the scrollbar for Chrome, Safari, and Opera */
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  padding: 20px;
+  background: url(${neuronPattern}) repeat, linear-gradient(
+    135deg,
+    #ffffff 0%,    /* Белый */
+    #f8f8f8 25%,   /* Очень светло-серый */
+    #e0e0e0 50%,   /* Светло-серый */
+    #f8f8f8 75%,   /* Очень светло-серый */
+    #ffffff 100%   /* Белый */
+  );
+  background-blend-mode: overlay;
 `;
 const AppContainer = styled.div`
   max-width: 800px;

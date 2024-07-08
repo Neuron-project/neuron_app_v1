@@ -89,8 +89,8 @@ const NftComponent = styled.div`
   align-items: center;
   padding: 16px;
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.1); /* Прозрачный белый цвет */
-  backdrop-filter: blur(4px) saturate(150%); /* Эффект размытия и насыщенности */
+  background-color: rgba(255, 255, 255, 0.05); /* Прозрачный белый цвет */
+  backdrop-filter: blur(2px) saturate(150%); /* Эффект размытия и насыщенности */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Тень */
 `;
 const NftIcon = styled.img`
@@ -283,6 +283,8 @@ function HomePage() {
       console.error(`Transaction failed: ${error}`);
     }
   };
+
+  
   return (
     
     <StyledApp style={{paddingTop: '10vh' }}>
