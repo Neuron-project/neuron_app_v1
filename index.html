@@ -2,25 +2,23 @@
 <html lang="en">
   <head>
     <meta name="viewport" content="height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Neuron App">
     <link rel="apple-touch-icon" href="/AppIcon.png">
     <link rel="icon"  href="/AppIcon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Neuron app</title>
     <style>
       body {
-        height: 100vh !important;
+        height: 200vh !important;
         position: static !important;
         overscroll-behavior: none;
         
       }
 
       flutter-view {
+        display: block;
         position: fixed !important;
-        max-width: 100vw !important;
-        max-height: 100vh !important;
-        overflow-y: scroll;
+        width: 200vw !important;
+        height: 200vh !important;
+        overflow-y: auto; /* Добавлено для скроллинга внутри flutter-view */
       }
       @media screen and (min-width: 500px) {
         body {
@@ -48,6 +46,13 @@
     
         Telegram.WebApp.expand();
 
+        window.addEventListener('load', function() {
+    // Добавляем небольшую задержку перед прокруткой
+    setTimeout(function() {
+      // Прокручиваем вниз на высоту всего документа
+      window.scrollTo(0, document.body.scrollHeight);
+    }, 100); // Задержка в миллисекундах
+  });
     </script>
   </body>
 </html>
