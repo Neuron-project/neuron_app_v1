@@ -7,7 +7,7 @@ import "./index.css";
 
 // this manifest is used temporarily for development purposes
 const manifestUrl =
-  "https://raw.githubusercontent.com/Neuron-project/manifest/main/tonconnect-manifest.json";
+  "https://raw.githubusercontent.com/Neuron-project/manifest/main/ton_manifest.json";
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { refetchOnWindowFocus: false } },
