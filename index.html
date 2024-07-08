@@ -42,6 +42,12 @@
       Telegram.WebApp.disableVerticalSwipes();
   
       Telegram.WebApp.expand();
+
+      function preventCollapse() {
+        if (window.scrollY === 0) {
+          window.scrollTo(0, 1);
+        }
+        }
   </script>
 </body>
 </html>
