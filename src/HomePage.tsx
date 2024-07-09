@@ -150,7 +150,7 @@ const FlexBoxRow = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  // gap: 10px;
+  gap: 10px;
 `;
 
 const TimerContainer = styled.div`
